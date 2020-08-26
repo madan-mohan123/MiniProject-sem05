@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+       *{
+        margin:0px;
+        padding: 0px;
+        }
+        body{
+            box-sizing: border-box;
+        }
+       .container{
+           width: 100%;
+       }
+       .header{
+           height: 80px;
+           padding: 0 20px;
+           background-color: rgb(26, 21, 21);
+          
+       }
+
+       .header .menu{
+           float: right;
+        
+       }
+     .header ul li{
+           display: inline-block;
+           list-style: none;
+           line-height: 80px;
+          
+       }
+      .header ul li a{
+           text-decoration: none;
+           color: gray;
+           font-size: 15px;
+           text-transform: uppercase;
+           padding: 5px 20px;
+           border:2px solid orange;
+       }
+       .banner{
+           width: 100%;
+           position: relative;
+           left:0;
+           top:0;
+       }
+       img{
+           width: 100%;
+           position: relative;
+           left:0;
+           top:0;
+           z-index: -1;
+       }
+    .banner h1{
+           position:absolute;
+           top: -50px; 
+            right: 5%;
+           z-index: 3;
+           font-size: 80px;
+           color:whitesmoke
+       }
+    </style>
+</head>
+<body>
+   <div class="container">
+       <div class="header">
+           <div class="menu">
+           <ul>
+<li><a href="#">home</a></li>
+<li><a href="#">services</a></li>
+<li><a href="#">details</a></li>
+<li><a href="#">contact</a></li>
+<li><a href="#">about</a></li>
+</ul>
+</div>
+       </div>
+       <div class="banner">
+
+<img src="../miniproject/MiniProject-sem05/images/h3.jpg" alt="">
+<pre>
+    <h1>
+        WELCOME 
+        IN YOUR 
+        DREAM HOME
+    </h1>
+</pre>
+   <div>   </div>
+       </div>
+   </div> 
+</body>
+</html>
