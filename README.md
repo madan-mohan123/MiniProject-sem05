@@ -69,7 +69,7 @@ This project is divided into seven modules for ease of access of development.
          
 	Project Planning:   
                                                                                                                                                                               
- ![images/planing.jpg];
+   ![](images/planning.jpg)
 
 
 
