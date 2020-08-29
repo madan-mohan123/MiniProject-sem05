@@ -3,91 +3,493 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-    <style>
-       *{
-        margin:0px;
-        padding: 0px;
-        }
-        body{
-            box-sizing: border-box;
-        }
-       .container{
-           width: 100%;
-       }
-       .header{
-           height: 80px;
-           padding: 0 20px;
-           background-color: rgb(26, 21, 21);
-          
-       }
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-       .header .menu{
-           float: right;
+    <title>Template</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        box-sizing: border-box;
+        }
+        .header{
+            background-color: rgb(51, 49, 49);
+            height: 80px;
+            padding: 0 20px;
+        }
+        .nav{
+            float: right;
+        }
+        .nav ul li{
+            list-style: none;
+            display: inline-block;
+            line-height: 80px;
+        }
+        .nav ul li a{
+            text-decoration: none;
+            font-size: 17px;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: 0.6s;
+        }
+        .nav a:hover{
+background-color: gray;
+        }
+       
+        .header img{
+            border-radius: 20px 0 20px 0;
+            width:130px;
+             height:90px;
+             padding-top: 5px;
+             float:left;
+           
+        }
+        .header p{
+            
+            display: inline-block;
+            line-height: 80px;
+            margin-left: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            color:rgb(209, 209, 200);
+        }
+        .homeimage{
+            width: 100%;
+            height: 800px;
+            background-image: url(../MiniProject-sem05/images/h3.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+      
+        .homeimage .overwrite{
+            clear: both;
+           float:right;
+           margin-right: 50px;
+            width: 400px;
+            display:flex;
+            justify-items: center;
+            text-align: center;
+
+        }
+        .homeimage .overwrite h1{
+            font-size: 80px;
+            color: white;
+            
+        }
+        .homeimage .but{
+            border:2px solid black;
+            clear: both;
+            height: 30px;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(51, 49, 49);
+           
+            border-radius: 20px;
+            padding: 5px 10px;
+            margin:30px 100px;
+            float:right;
+           
+        }
+        .homeimage .but a{
+
+            text-decoration: none;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .cards{
+            border:2px solid black;
+            padding-bottom: 60px;
+            background-color: rgb(44, 39, 39);
+        }
+        .cards .rec{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            width: 50%;
+            /* border:1px solid orange; */
+            margin:auto;
+        }
         
-       }
-     .header ul li{
-           display: inline-block;
-           list-style: none;
-           line-height: 80px;
+        .box{
+            /* height: 200px; */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        .cards .box .box1{
+            width: 25%;
+            /* border:2px solid black; */
+            /* height: 200px; */
+            float: left;
+            margin: 20px;
+            margin-top: 60px;
+            /* border:1px solid orange; */
+        }
+        .box::after{
+            content:'';
+            clear: both;
+            display: block;
+        }
+        .box1 img{
+            width:100%;
+            height: 200px;
+            border-radius: 20px;
+        }
+        .colloboraters{
+            width: 100%;
+          padding-top: 30px;
+            background-color: rgb(24, 18, 18);
+            /* background-color: #2f3640; */
+        }
+        .colloboraters .colbo1,.colbo2{
+            width: 80%;
+            margin: auto;
+            padding-bottom: 30px;
+            border-bottom:2px solid rgba(255, 255, 255, 0.5);
+            margin-top: 30px;
+            /* margin-bottom: 30px; */
+        }
+        .colbo1 img{
+            width:300px;
+            height: 200px;
+            border-radius: 25px 0 25px 0;
+            border-style: ridge;
+           /* margin-left: 100px; */
+            float: left;
           
-       }
-      .header ul li a{
-           text-decoration: none;
-           color: gray;
-           font-size: 15px;
-           text-transform: uppercase;
-           padding: 5px 20px;
-           border:2px solid orange;
-       }
-       .banner{
-           width: 100%;
-           position: relative;
-           left:0;
-           top:0;
-       }
-       img{
-           width: 100%;
-           position: relative;
-           left:0;
-           top:0;
-           z-index: -1;
-       }
-    .banner h1{
-           position:absolute;
-           top: -50px; 
-            right: 5%;
-           z-index: 3;
-           font-size: 80px;
-           color:whitesmoke
-       }
+        }
+        .colbo2 img{
+            width:300px;
+            height: 200px;
+            /* margin-right: 100px; */
+            border-radius: 25px 0 25px 0;
+            border-style: ridge;
+           
+            float: right;
+          
+        }
+        .colbo1 p{
+            width:300px;
+            float: right;
+            font-size: 20px;
+            text-align: justify;
+            /* margin-right: 100px; */
+            color:white;
+            opacity: 0.6;
+        }
+        .colbo2 p{
+            width:300px;
+            float: left;
+            font-size:20px;
+            text-align: justify;
+            /* margin-left: 100px; */
+            color:white;
+            opacity: 0.6;
+        }
+        .colbo1::after,.colbo2::after{
+            content: '';
+            clear: both;
+            display: block;
+        }
+
+
+        .colloboraters::after{
+            content: '';
+            clear: both;
+            display: block;
+        }
+
+.footer{
+         
+         width: 100%;
+         background-color: #2f3640;
+         padding:40px 20px;
+        
+     }
+     
+
+   
+    .mycontent{
+      width: 100%;
+      height: 220px;
+      border-bottom:2px solid rgba(255,255,255,0.1);
+  }
+      .mycontent .about{
+          float: left;
+          height: 200px;
+          width: 30%;
+          margin-right: 50px;
+          overflow: hidden;
+      }
+      .mycontent  .about h2{
+color:white;
+text-transform: uppercase;
+margin-bottom: 30px;
+
+      }
+      .mycontent .about p{
+          color:white;
+          opacity:0.5;
+      }
+      .mycontent .link{
+          float: right;
+          width: 20%;
+          height: 200px;
+      }
+      .mycontent .link p{
+          color:white;
+text-transform: uppercase;
+margin-bottom: 30px;
+      }
+      .mycontent .link ul{
+          list-style: none;
+      }
+      .mycontent .link ul li{
+          margin: 5px;
+      }
+      .mycontent .link ul li a{
+         color: white; 
+         text-decoration: none;
+         opacity:0.5;
+       
+      }
+       .mycontent::after{
+          content: '';
+          clear: both;
+          display: block;
+      }
+      .regis{
+         width: 100%;
+          margin-top: 50px;
+          /* display: flex;
+          justify-content: center;
+          align-items: center; */
+      }
+      .regis h1{
+          text-align: center;
+          color: white;
+          /* margin-right: 20px; */
+      }
+      .regis a{
+          
+          display: block;
+          margin:auto;
+          margin-top: 20px;
+          text-align: center;
+          line-height: 26px;
+          color: white; 
+         text-decoration: none;
+         height: 35px;
+         width: 150px;
+         padding:5px;
+         background-color: rgba(76, 113, 192, 0.747);
+         border-radius: 15px;
+        
+      }
+      .regis a:hover{
+      background-color: red;
+      }
+      .regis a:visited{
+          color:white;
+          background-color: pink; 
+      }
+      .social{
+          width: 100%;
+          border-top:2px solid rgba(255,255,255,0.1);
+          margin-top:50px;
+          padding-top: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      .social i{
+color: white;
+font-size: 20px;
+    }
+    .social .face{
+        margin:20px;
+padding:15px;
+        border-radius: 100%;
+        background-color: rgb(106, 106, 206);
+    }
+    .social .insta{
+        margin:20px;
+padding:15px;
+        border-radius: 100%;
+        background-color: purple;
+    }
+    .social .twit{
+        margin:20px;
+padding:15px;
+        border-radius: 100%;
+        background-color: skyblue;
+
+    }
+    .social .linked{
+        margin:20px;
+padding:15px;
+        border-radius: 100%;
+        background-color: blueviolet;
+    }
+    .social .gmail{
+        margin:20px;
+padding:15px;
+        border-radius: 100%;
+        background-color: red;
+    }
+
+    .social .insta:hover,.face:hover,.gmail:hover,.twit:hover,.linked:hover{
+        background-color:rgb(219, 186, 0)
+    }
+  
+
+
+        
+        
     </style>
 </head>
 <body>
-   <div class="container">
-       <div class="header">
-           <div class="menu">
-           <ul>
-<li><a href="#">home</a></li>
-<li><a href="#">services</a></li>
-<li><a href="#">details</a></li>
-<li><a href="#">contact</a></li>
-<li><a href="#">about</a></li>
-</ul>
-</div>
-       </div>
-       <div class="banner">
+    <div class="container">
+        <div class="header">
+            <img src="../MiniProject-sem05/images/logo.jpg"  alt="">
+            <p>House <span style="color: gray; opacity: 0.7;font-size:30px;">Management</span></p>
+            <div class="nav">
+                <ul>
+                    <li><a href="">home</a></li>
+                    <li><a href="">signup</a></li>
+                    <li><a href="">login</a></li>
+                    <li><a href="">Service</a></li>
+                </ul>
+            </div>
+          
+        </div>
+        <div class="homeimage">
+            <div class="overwrite">
+                <h1>Welcome's Your Dream House</h1>
+            </div>
+            <div class="but">
+               <a href="#"><p>How May We help You</p> </a>
+            </div>
+        </div>
+        <div class="cards">
+            <h1 style="text-align: center;color: blue;margin: 40px 40px;">Your Home's</h1>
+            <div class="rec">
+               
+                <p style="color: white;" >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, accusantium fugit? Molestiae debitis accusantium fugit
+                     iusto, dicta eaque nihil libero earum in consequatur quod eos nobis, voluptatem 
+                     tur adipisicing elit. Tempore, accusantium fugit? Molestiae debitis accusantium fugit
+                     iusto, dicta eaque nihil libero earum in consequatur quod eos nobis, vreiciendis voluptatibus adipisci!</p>
+            </div>
+             <div class="box">
+            <div class="box1">
+                <img src="../MiniProject-sem05/images/h2.jpg" alt="">
+                <h2 style="text-align: center;color: blue;margin-top:20px;margin-bottom:20px;font-family: Arial, Helvetica, sans-serif;">Content Title</h2>
+                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:20px;">sub title</h4>
+                <p style="color: white;opacity: 0.5;text-align: center;padding:5px" >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea consequatur cum mollitia delectus molestias, tempore, dolorum similique vero enim consectetur debitis illo consequuntur! Commodi laboriosam eaque assumenda expedita tenetur sed.
 
-<img src="../MiniProject-sem05/images/h3.jpg" alt="">
-<pre>
-    <h1>
-        WELCOME 
-        IN YOUR 
-        DREAM HOME
-    </h1>
-</pre>
-   <div>   </div>
-       </div>
-   </div> 
+                </p>
+            </div>
+            <div class="box1">
+                <img src="../MiniProject-sem05/images/h3.jpg" alt="">
+                <h2 style="text-align: center;color: blue;margin-bottom:20px;margin-top:20px;font-family: Arial, Helvetica, sans-serif;">Content Title</h2>
+                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:20px;">sub title</h4>
+                <p style="color: white;opacity: 0.5;padding:5px" >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea consequatur cum mollitia delectus molestias, tempore, dolorum similique vero enim consectetur debitis illo consequuntur! Commodi laboriosam eaque assumenda expedita tenetur sed.
+
+                </p></div>
+            <div class="box1"><img src="../MiniProject-sem05/images/h4.jpg" alt="">
+                <h2 style="text-align: center;color: blue;margin-top:20px;margin-bottom:20px;font-family: Arial, Helvetica, sans-serif;">Content Title</h2>
+                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:20px;">sub title</h4>
+                <p style="color: white;opacity: 0.5;padding:5px" >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea consequatur cum mollitia delectus molestias, tempore, dolorum similique vero enim consectetur debitis illo consequuntur! Commodi laboriosam eaque assumenda expedita tenetur sed.
+
+                </p></div> 
+        </div>
+        </div>
+        <div class="colloboraters">
+            <h1 style="text-align: center;color: blue;">Our Colloboraters</h1>
+            <div class="colbo1">
+                <img src="../MiniProject-sem05/images/h2.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
+                     deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
+                </p>
+            </div>
+            <div class="colbo2">
+                <img src="../MiniProject-sem05/images/h3.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
+                     deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
+                </p>
+            </div>
+            <div class="colbo1">
+                <img src="../MiniProject-sem05/images/h4.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
+                     deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
+                </p>
+            </div>
+            <div class="colbo2">
+                <img src="../MiniProject-sem05/images/h5.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
+                     deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
+                </p>
+            </div>
+            <div class="colbo1">
+                <img src="../MiniProject-sem05/images/l4.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
+                     deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
+                </p>
+            </div>
+
+        </div>
+        <div class="footer">
+            <div class="mycontent">
+                <div class="about">
+                    <h2>About Us</h2>
+                    <p>Our caompany is IT company in global market.It provide you best Picture choosen by Author different countries.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolore rem ducimus, id nam totam dicta iusto! Possimus 
+                        soluta ad qui praesentium sequi quas earum maiores, laudantium voluptatum corrupti porro.
+         
+                    </p>
+                </div>
+                <div class="link">
+                    <p>Special</p>
+                 <ul>
+                     <li><a href="#">Home</a></li>
+                     <li><a href="#">Privacy Policy</a></li>
+                     <li><a href="#">Disclaimer</a></li>
+                     <li><a href=#>Contact</a></li>
+                     <li><a href=#>Colloboraters</a></li>
+                 </ul>
+                </div>
+                <div class="link">
+                    <p>Details</p>
+                 <ul>
+                     <li><a href="#">Transaction</a></li>
+                     <li><a href="#">Best</a></li>
+                     <li><a href="#">Location</a></li>
+                     <li><a href=#>Customers</a></li>
+                     <li><a href=#>Tenants</a></li>
+                 </ul>
+                </div>
+                </div>
+                <div class="regis">
+                    <h1>Register To Get Home's</h1>
+                    <a href="#">SignUp</a>
+                </div>
+                <div class="social">
+                    <span class="face"><i class="fa fa-facebook"></i></span>
+                    <span class="twit"><i class="fa fa-twitter"></i></span>
+                    <span class="insta"><i class="fa fa-instagram"></i></span>
+                    <span class="linked"><i class="fa fa-linkedin"></i></span>
+                    <span class="gmail"><i class="fa fa-google-plus"></i></span>
+                </div>
+        </div>
+    </div>
 </body>
 </html>
