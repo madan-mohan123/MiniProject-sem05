@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        box-sizing: border-box;
+        }
+        body{
+            background-color: red;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;;
+        }
+        .header{
+            background-color: rgb(51, 49, 49);
+            height: 80px;
+            padding: 0 20px;
+            opacity:0.8;
+        }
+        .nav{
+            float: right;
+        }
+        .nav ul li{
+            list-style: none;
+            display: inline-block;
+            line-height: 80px;
+        }
+        .nav ul li a{
+            text-decoration: none;
+            font-size: 17px;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: 0.6s;
+        }
+        .nav ul li a:hover{
+background-color: gray;
+position: relative;
+top:-5px;
+color:rgb(7, 5, 12);
+        }
+        .nav ul li:hover .menu{
+            display: block;
+            
+        }
+       
+        .header img{
+            border-radius: 20px 0 20px 0;
+            width:130px;
+             height:90px;
+             padding-top: 5px;
+             float:left;
+           
+        }
+        .header p{
+            
+            display: inline-block;
+            line-height: 80px;
+            margin-left: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            color:rgb(209, 209, 200);
+        }
+        .menu{
+            position:absolute;
+            right: 0;
+            top:80px;
+            width: 170px;
+           display: none;
+            background-color: orange; 
+        }
+        
+        .menu ul li{
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            
+            
+            
+        }
+        .menu ul li a{  
+            font-size: 16px;
+            color: white;
+            padding: 7px 20px;
+            border-radius: 0px;
+            transition: 0.6s;    
+        }
+        .menu ul li a:hover{    
+        border-left:5px solid White;
+    
+        }
+        .body{
+            clear: both;
+            margin-top:20px;
+            width: 100%;
+            height: 100%;
+            border-top:5px solid black;
+
+        }
+        .body .side{
+            width: 20%;
+            background-color: rgb(51, 49, 49);
+            color: white;
+            /* margin-top: 30px; */
+            height: 100%;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+           float: left;
+        }
+        .side img{
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            display: block;
+            margin: 20px auto;
+           
+        }
+        .side p{
+            border-bottom: 4px solid rgba(209, 209, 200,0.5);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .application{
+            float: left;
+            width:80%;
+            /* margin-left: 20px; */
+            /* height: 100%; */
+            background-color: white;
+            height: 100%;
+        }
+        
+     
+       
+        label{
+            display: block;
+            padding-right: 20px;
+            margin-right: 40px;
+            margin-bottom: 30px;
+            margin-left: 50px;
+            /* float: left; */
+        }
+        input{
+            display: inline-block;
+            margin-right: 300px; 
+            margin-bottom: 30px;
+            margin-left: 30px;
+            width: 400px;
+            height: 30px;
+          
+           
+        }
+        textarea{
+            display: inline-block;
+        }
+      
+
+       
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../images/h.jpg"  alt="">
+            <p>House <span style="color: gray; opacity: 0.7;font-size:30px;">Management</span></p>
+            <div class="nav">
+                <ul>
+                    <li><a href="../index.html">home</a></li>
+                    <li><a href="#">LogOut</a></li>
+                    <li>
+                        <a href="#">Services</a>
+                        <div class="menu">
+                        <ul>
+                            <li><a href="#bill">Billing</a></li>
+                            <li><a href="#">DashBoard</a></li>
+                            <li><a href="#Tenant">MyTenant</a></li>
+                            <li><a href="#profile">profile</a></li>
+                            <li><a href="#">Apartment</a></li>
+                            <li><a href="#">Application</a></li>
+                        </ul>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+          
+        </div>
+<div class="body ">
+        <div class="side">
+            <img src="../../semester-5/images/avatar2.png" alt="">
+            <p>Madan Mohan</p>
+            <p>659898645884</p>
+            <p>customers :3</p>
+
+        </div>
+ 
+       
+        <div class="application" >
+        
+            <h1 style="text-align: center;font-size: 30px;margin-bottom: 50px;">Complaint!</h1>
+           
+                <!-- <h1 style="text-align: center;font-size: 30px;margin-bottom: 50px;">Give your Complaint here</h1> -->
+                <label for="">
+                     To<input type="text" placeholder="Email">
+                </label>
+   
+                <label for="">
+                    Description
+                    <textarea name="descript" id="" cols="80" rows="10"></textarea>
+                    
+               </label>
+                <!-- <textarea name="descript" id="" cols="80" rows="10"></textarea> -->
+    
+    
+    
+            </div>
+
+
+
+
+        </div>
+       
+    </div>
+</div>
+</body>
+</html>
