@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Tenant Dashboard</title>
     <style>
         *{
             padding: 0;
@@ -13,7 +13,8 @@
         }
         body{
             /* background-color: red; */
-            background-color:rgb(173, 6, 89);
+            /* background-color:rgb(173, 6, 89); */
+            background-image: linear-gradient(orange,blue,teal);
         }
         .container{
             width: 100%;
@@ -37,13 +38,16 @@
             text-decoration: none;
             font-size: 17px;
             color: white;
-            padding: 5px 20px;
+            padding: 10px 20px;
             border-radius: 10px;
             text-transform: uppercase;
-            transition: 0.6s;
+            transition: 0.5s;
+            margin-left: 5px;
+    margin-right: 5px;
         }
         .nav ul li a:hover{
-background-color: gray;
+            background-image: linear-gradient(red,teal);
+box-shadow: 0 2px 10px 5px rgb(0, 255, 213);
 position: relative;
 top:-5px;
 color:rgb(7, 5, 12);
@@ -76,7 +80,7 @@ color:rgb(7, 5, 12);
             top:80px;
             width: 170px;
            display: none;
-            background-color: orange; 
+           background-image: linear-gradient(skyblue,pink);
         }
         
         .menu ul li{
@@ -92,10 +96,11 @@ color:rgb(7, 5, 12);
             color: white;
             padding: 7px 20px;
             border-radius: 0px;
-            transition: 0.6s;    
+            transition: 0.5s;    
         }
         .menu ul li a:hover{    
         border-left:5px solid White;
+        color: white;
     
         }
         .body{
@@ -106,7 +111,7 @@ color:rgb(7, 5, 12);
             border-top:5px solid black;
 
         }
-        .body .side{
+        .body .left{
             width: 20%;
             background-color: rgb(51, 49, 49);
             color: white;
@@ -117,7 +122,7 @@ color:rgb(7, 5, 12);
             padding-right: 20px;
            float: left;
         }
-        .side img{
+        .left img{
             width: 100px;
             height: 100px;
             border-radius: 100%;
@@ -125,12 +130,19 @@ color:rgb(7, 5, 12);
             margin: 20px auto;
            
         }
-        .side p{
+        .left p{
             border-bottom: 4px solid rgba(209, 209, 200,0.5);
             padding-bottom: 20px;
             margin-bottom: 20px;
         }
-        .section-1{
+       
+.dashboard{
+    width: 80%;
+          
+          float: left; 
+          /* background-color: white;  */
+}
+        .dashboard .section-1{
             padding: 20px;
             width: 200px;
             height: 200px;
@@ -145,10 +157,83 @@ align-items: center;
 font-size: 25px;
 transition: 0.9s;
         }
-        .section-1:hover{
+        .dashboard  .section-1:hover{
             background-color: rgb(216, 147, 18);
             transform: rotate(360deg);
         }
+
+
+        .profile{
+    float: left;
+    width:80%;
+
+    background-color: white;
+    display: none;
+}
+
+
+.profile img{
+    display: block;
+    /* clear: both; */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    margin-bottom: 40px;
+}
+.profile label{
+    display: inline-block;
+    padding-right: 20px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    /* float: left; */
+}
+.profile input{
+    display: inline-block;
+    margin-right: 300px; 
+    margin-bottom: 30px;
+    margin-left: 30px;
+    width: 400px;
+    height: 30px;
+    /* border:hidden; */
+   
+}
+
+
+.application{
+    display: none;
+    float: left;
+    width:80%;
+    /* margin-left: 20px; */
+    /* height: 100%; */
+    background-color: white;
+    height: 100%;
+}
+
+
+
+.application label{
+    display: block;
+    padding-right: 20px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    /* float: left; */
+}
+.application input{
+    display: inline-block;
+    margin-right: 300px; 
+    margin-bottom: 30px;
+    margin-left: 30px;
+    width: 400px;
+    height: 30px;
+  
+   
+}
+.application textarea{
+    display: inline-block;
+}
      
         </style>
 </head>
@@ -166,12 +251,12 @@ transition: 0.9s;
                         <div class="menu">
                         <ul>
                             <li><a href="#bill">Billing</a></li>
-                            <li><a href="#">DashBoard</a></li>
-                            <!-- <li><a href="dashboardowner.html">MyTenant</a></li> -->
-                            <li><a href="dashprofile.html">profile</a></li>
+                            <li><a href="#" onclick="dashboard()">DashBoard</a></li>
+                            
+                            <li><a href="#" onclick="profile()">profile</a></li>
                             <li><a href="#">Change</a></li>
-                            <li><a href="dashapplication.html">Complaint</a></li>
-                            <!-- <li><a href="#">Details</a></li> -->
+                            <li><a href="#" onclick="complaint()">Complaint</a></li>
+                          
                         </ul>
                     </div>
                     </li>
@@ -180,17 +265,17 @@ transition: 0.9s;
           
         </div>
 <div class="body">
-        <div class="side">
+        <div class="left">
             <img src="../../semester-5/images/avatar2.png" alt="">
             <p>Madan Mohan</p>
             <p>659898645</p>
             <p>Tenant</p>
 
         </div>
-        <img src="../images/h4.jpg" width="75%" height="400px" alt="" style="margin: 30px auto;display: block;border-radius: 30px;">
-<!-- <h2 style="text-align: center;color: white;margin: 20px 0;">My Details</h2> -->
 
-      
+        <div class="right dashboard" id="dashboard">
+        <img src="../images/h4.jpg" width="75%" height="400px" alt="" 
+        style="margin: 30px auto;display: block;border-radius: 30px;">
        <section class="section-1">Payment 
         <p style="color: orange;margin: 20px; font-size: 30px;">No Due</p>
        </section>
@@ -200,8 +285,75 @@ transition: 0.9s;
        <section class="section-1">Month
         <p style="color: orange;margin: 20px; font-size: 30px;">08</p>
        </section>
-
-
         </div> 
+
+
+        <div class="right profile" id="profile" >
+            <h1 style="text-align: center;font-size: 30px;">Profile</h1>
+            <img src="../../semester-5/images/avatar2.png" alt="">
+            <label for="name">Name
+<input type="text">
+</label>
+<label for="email">Email
+ <input type="text">
+</label>
+<label for="contact">contact
+<input type="text">
+</label>
+<label for="profession">Profession
+<input type="text">
+</label>
+<h1 style="text-align: center;font-size: 30px;margin-bottom: 50px;">Account detail</h1>
+<label for="profession">Account
+    <input type="text">
+    </label>
+    <label for="profession">Bank
+        <input type="text">
+        </label>
+        </div>
+
+
+        <div class="right application" id="complaint" >
+        
+            <h1 style="text-align: center;font-size: 30px;margin-bottom: 50px;">Complaint!</h1>
+           
+                <!-- <h1 style="text-align: center;font-size: 30px;margin-bottom: 50px;">Give your Complaint here</h1> -->
+                <label for="">
+                     To<input type="text" placeholder="Email">
+                </label>
+   
+                <label for="">
+                    Description
+                    <textarea name="descript" id="" cols="80" rows="10"></textarea>
+                    
+               </label>
+                <!-- <textarea name="descript" id="" cols="80" rows="10"></textarea> -->
+    
+    
+    
+            </div>
+</div>
+        <script>
+            function profile(){
+                document.getElementById("dashboard").style.display="none";
+                document.getElementById("complaint").style.display="none";
+            
+                document.getElementById("profile").style.display="block";
+            }
+          
+            function complaint(){
+                document.getElementById("dashboard").style.display="none";
+                document.getElementById("profile").style.display="none";
+               
+                document.getElementById("complaint").style.display="block";
+                
+            }
+            function dashboard(){
+                document.getElementById("profile").style.display="none";
+               
+                document.getElementById("complaint").style.display="none";
+                document.getElementById("dashboard").style.display="block";
+            }
+        </script>
 </body>
 </html>
