@@ -1,0 +1,232 @@
+/* CSS Reset */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*CSS variables*/
+:root{
+    --navbar-height: 59px;
+}
+/* Navigation bar */
+#navbar{
+    display: flex;
+    align-items: center;
+    position: absolute;
+}
+#navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    height: 85%;
+    width: 100%;
+    z-index: -1;
+    opacity:0.2;
+}
+
+/* LOGO and IMAGE */
+#logo{
+    margin: 50px 54px;
+
+}
+#logo img{
+    height: 100px;
+    margin: 3px 6px;
+}
+/*List Styling */
+#navbar ul{
+    display: flex;
+    padding-left:300px;
+}
+#navbar ul li{
+    color: gray;
+    list-style: none;
+    font-size: 1.3rem;
+}
+#navbar ul li a{
+    color: rgb(245, 239, 239);
+    display: block;
+    font-size: 1.8rem;
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+#navbar ul li a:hover{
+    color: red;
+    background: white;
+}
+/* home section */
+#home{
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    height : 602px; 
+    justify-content: center;
+    align-items: center;
+}
+#home::before{
+    content: "";
+    position: absolute;
+    background: url('../images/house.jpg') no-repeat center center/cover;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 1;
+}
+#home h1{
+    color: rgb(241, 239, 239);
+    text-align: center;
+    padding-top: 200px;
+    
+}
+#home p{
+    color: rgb(255, 254, 254);
+    text-align: center;
+    font-size:2.3rem ;
+}
+#Search{
+    border: 2px solid #f9f5f5;
+    padding: 3px 6px;
+    margin: -17px 250px;
+    border-radius: 23px;
+    background-color: #ece0e0;
+}
+#Search-box{
+    display:flex;
+     flex-flow: row wrap; 
+    padding: 3px 130px;
+    width: 100%;
+}
+#loc{
+    padding-right: 121px;
+}
+#number{
+    padding-right: 35px;
+}
+#date{
+    padding-right: 72px;
+}
+#Search-box input, select{   
+    padding:0.5rem;
+    border-radius: 9px;
+    font-size: 1.1rem;
+    width: 150px; 
+}
+#Search-box label{
+    padding:0.5rem;
+    font-size: 1.1rem;
+}
+input[type="button" i] {
+    color: #f3e7e7;
+    background-color:rgb(74,74,74);
+    cursor: pointer;
+    padding: 7px 7px;
+    border-radius: 10px;
+}
+#button{
+    display: flex;
+    justify-content: center;
+}
+/*services section*/
+#services{
+    margin: 34px;
+    display: flex;
+}
+#services .box{
+    border: 2px solid black;
+    padding: 34px;
+    margin: 3px 6px;
+    border-radius: 23px;
+    background-color: #e0cdcd;
+    width:357px;
+}
+#services .box img{
+    height: 160px;
+    margin: auto;
+    display: block;
+}
+#houseimage{
+    padding: 5px;
+    display: flex;
+    background-color: #353131;
+}
+#houseimage .houses img{
+    display: flex;
+    flex-flow: row;
+    width: 324px;
+    height: 251px;
+    padding: 5px 5px;
+    border-radius: 56px;
+    cursor: pointer;
+}
+.content-box{
+    height:166px; 
+    background-color:  #353131;
+    padding-left: 10px;
+    width: 100%;
+    border-bottom: 3px  solid grey;
+    border-bottom-width: 30%;
+    
+}
+.content-box .about{
+    padding-left:20px;
+    float: left;
+    width: 30%;
+    color: white;   
+}
+.content-box .details{
+    color: white;
+    float:right;
+    padding-right:300px;
+    
+    
+}
+.content-box .details ul li{   
+    color: white;
+}
+.content-box .details ul{
+    padding-left: 35px;
+    padding-top: 2px;
+}
+footer{
+    background:#353131;
+    color:white;
+    padding: 9px 9px;
+}
+
+/*utility class */
+.h-primary{
+    font-size: 2.8rem;
+    padding: 12px;
+}
+.h-secondary{
+    font-size: 1.8rem;
+    padding: 12px;
+}
+.btn{
+    padding: 6px 20px;
+    border: 2px solid white;
+    background-color: brown;
+    color: white;
+    margin:17px;
+    font-size:1.5rem;
+    border-radius: 10px;
+    cursor:pointer;
+}
+.form-group{
+    display:flex;
+    flex-flow: row wrap; 
+    
+    padding: 5px 15px; 
+     justify-content: center;
+    align-items: center;
+}
+.content{
+    display: block;
+    color:white;
+    background-color: #353131;
+}
+.center{
+    text-align: center;
+}
+
