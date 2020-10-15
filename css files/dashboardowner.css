@@ -189,22 +189,38 @@ color: white;
     margin-bottom: 40px;
 }
 .profile label{
-    display: inline-block;
-    padding-right: 20px;
-    margin-right: 40px;
-    margin-bottom: 30px;
+    display: block;
+   
+    
+    margin-bottom: 10px;
     margin-left: 50px;
-    /* float: left; */
+    
 }
 .profile input{
-    display: inline-block;
-    margin-right: 300px; 
+    display: block;
+   color: rebeccapurple;
     margin-bottom: 30px;
-    margin-left: 30px;
+    margin-left: 50px;
     width: 400px;
     height: 30px;
-    /* border:hidden; */
+ 
    
+}
+.profile button{
+    display: block;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    width: 100px;
+    height: 30px; 
+    color: white; 
+    border-radius: 15px;
+    background-image:linear-gradient(blue,white);
+    border: none;
+    font-size: 13px;
+}
+.profile button:hover{
+box-shadow: 0 0 10px 2px green;
 }
 
 
@@ -212,8 +228,7 @@ color: white;
     display: none;
     float: left;
     width:80%;
-    /* margin-left: 20px; */
-    /* height: 100%; */
+    
     background-color: white;
     height: 100%;
 }
@@ -222,24 +237,37 @@ color: white;
 
 .application label{
     display: block;
-    padding-right: 20px;
-    margin-right: 40px;
-    margin-bottom: 30px;
+    
+    margin-bottom: 15px;
     margin-left: 50px;
-    /* float: left; */
+
 }
 .application input{
-    display: inline-block;
-    margin-right: 300px; 
+    display: block;
     margin-bottom: 30px;
-    margin-left: 30px;
-    width: 400px;
-    height: 30px;
-  
-   
+    margin-left: 50px;
+    width: 500px;
+    height: 30px;  
 }
 .application textarea{
-    display: inline-block;
+    display: block;
+    margin-left: 50px;
+}
+.application button{
+    display: block;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    width: 100px;
+    height: 30px; 
+    color: white; 
+    border-radius: 15px;
+    background-image:linear-gradient(blue,white);
+    border: none;
+    font-size: 13px;
+}
+.application button:hover{
+box-shadow: 0 0 10px 2px green;
 }
 
 

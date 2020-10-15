@@ -6,487 +6,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <title>Template</title>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-        box-sizing: border-box;
-        }
-        body{
-            background-color: rgb(72, 40, 190);
-            /* background-image: linear-gradient(red,green); */
-        }
-        .header{
-            /* background-color: rgb(51, 49, 49); */
-            background-color:rgba(51,49,49,0.8);
-            height: 80px;
-            padding: 0 20px;
-           
-        }
-        .nav{
-            float: right;
-        }
-        .nav ul li{
-            list-style: none;
-            display: inline-block;
-            line-height: 80px;
-        }
-        .nav ul li a{
-            text-decoration: none;
-            font-size: 17px;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            transition: 0.5s;
-            margin: 0 5px 0 5px;
-        }
-        .nav a:hover{
-
-background-image: linear-gradient(red,teal);
-box-shadow: 0 2px 10px 2px rgb(0, 255, 213);
-position: relative;
-top:-5px;
-color:rgb(226, 223, 233);
-
-        }
-
-        .nav a[href="#"]:hover{
-            background-color: orangered;
-            box-shadow: 0 2px 10px 3px rgb(218, 10, 107);
-            position: relative;
-            top:0;
-           
-            
-        }
-       
-        .header img{
-            border-radius: 20px 0 20px 0;
-            width:130px;
-             height:90px;
-             padding-top: 5px;
-             float:left;
-         
-            position: relative;
-            left: 0;
-            z-index: 1;  
-        }
-        .header p{
-            
-            display: inline-block;
-            line-height: 80px;
-            margin-left: 50px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 20px;
-            color:rgb(209, 209, 200);
-        }
-        .homeimage{
-            width: 100%;
-            height: 800px;
-            background-image: url(../MiniProject-sem05/images/h3.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            opacity: 0.9;
-        }
-      
-        .homeimage .overwrite{
-            clear: both;
-           float:right;
-           margin-right: 50px;
-            width: 400px;
-            display:flex;
-            justify-items: center;
-            text-align: center;
-
-        }
-        .homeimage .overwrite h1{
-            font-size: 80px;
-            color: white;            
-        }
-        .homeimage .but{
-            border:2px solid black;
-            clear: both;
-            height: 40px;
-            width: 250px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgb(51, 49, 49);
-            border-radius: 20px;
-            padding: 5px 10px;
-            margin:30px 100px;
-            float:right;
-           
-        }
-        .homeimage .but a{
-            text-decoration: none;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .homeimage .but:hover{
-        
-        border:5px solid gray;
-        background-color: rgb(197, 73, 73);
-        
-        }
-
-        .cards{
-            /* border:2px solid orange; */
-            padding-bottom: 60px;
-            padding-top:20px ;
-            background-color: rgb(44, 39, 39);
-            
-        }
-        .cards .rec{
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            width: 50%;
-            /* border:1px solid orange; */
-            margin:auto;
-        }
-        
-        .box{
-            /* height: 200px; */
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-        }
-        .cards .box .box1{
-            width: 25%;
-            /* border:2px solid black; */
-            /* height: 200px; */
-            float: left;
-            margin: 20px;
-            margin-top: 60px;
-           
-            /* border:1px solid orange; */
-        }
-        .cards .box .box1:hover{
-            position: relative;
-            top:-15px;
-           
-        }
-        .box::after{
-            content:'';
-            clear: both;
-            display: block;
-        }
-        .box1 img{
-            width:100%;
-            height: 200px;
-            border-radius: 20px;
-        }
-.section-1{
-    padding:20px;
-    width: 100%;
-    background-color: rgb(48, 53, 53);
-    opacity: 0.9;
-}
-        .slider{
-            width:600px;  
-            margin: 20px auto;
-            height: 400px; 
-            /* border:1px solid orange; */
-            overflow:hidden;
-        }
-        .slider .slide-image img{
-            border-radius:30px 0 30px 0;
-            float: left;
-            width:600px; 
-            height: 400px; 
-            /* transition: 10s; */
-        }
-         .slider .slide-image {
-               position:relative;
-               width:3000px;
-               left:0;
-               animation-delay: 2s;
-               animation-timing-function:ease-in-out;
-               animation:30s slide infinite;
-               animation-direction:alternate;
-               
-            }
-            @keyframes slide{
-                0%{
-                    left:0px;
-                   
-                }
-               
-                20%{
-                    left:0px;
-                    
-                }
-                21%{
-                    left:-600px;
-                   
-                }
-               
-                 40%{
-                    left:-600px;
-                   
-                }
-                 41%{
-                    left:-1200px;
-                }
-
-               
-
-                 60%{
-                    left:-1200px;
-                }
-                 61%{
-                    left:-1800px;
-                 }
-
-                
-                 80%{
-                    left:-1800px;
-                }
-                 81%{
-                    left:-2400px;
-                }
-                100%{
-                    left:-2400px;
-                }
-               
-            }
-
-        .colloboraters{
-            width: 100%;
-          padding-top: 30px;
-            background-color: rgb(24, 18, 18);
-            opacity: 0.9;
-            /* background-color: #2f3640; */
-        }
-        .colloboraters .colbo1,.colbo2{
-            width: 80%;
-            margin: auto;
-            padding-bottom: 30px;
-            border-bottom:2px solid rgba(255, 255, 255, 0.5);
-            margin-top: 30px;
-            /* margin-bottom: 30px; */
-        }
-        .colbo1 img{
-            width:300px;
-            height: 200px;
-            border-radius: 25px 0 25px 0;
-            border-style: ridge;
-           /* margin-left: 100px; */
-            float: left;
-          
-        }
-        .colbo2 img{
-            width:300px;
-            height: 200px;
-            /* margin-right: 100px; */
-            border-radius: 25px 0 25px 0;
-            border-style: ridge;
-           
-            float: right;
-          
-        }
-        .colbo1 p{
-            width:300px;
-            float: right;
-            font-size: 20px;
-            text-align: justify;
-            /* margin-right: 100px; */
-            color:white;
-            opacity: 0.6;
-        }
-        .colbo2 p{
-            width:300px;
-            float: left;
-            font-size:20px;
-            text-align: justify;
-            /* margin-left: 100px; */
-            color:white;
-            opacity: 0.6;
-        }
-        .colbo1::after,.colbo2::after{
-            content: '';
-            clear: both;
-            display: block;
-        }
-
-
-        .colloboraters::after{
-            content: '';
-            clear: both;
-            display: block;
-        }
-
-
-
-
-.footer{
-         
-         width: 100%;
-         /* background-color: #2f3640; */
-         background-color:orange;
-         padding:40px 20px;
-        
-     }
-     
-
-   
-    .mycontent{
-      width: 100%;
-      height: 220px;
-      border-bottom:2px solid rgba(255,255,255,0.1);
-  }
-      .mycontent .about{
-          float: left;
-          height: 200px;
-          width: 30%;
-          margin-right: 50px;
-          overflow: hidden;
-      }
-      .mycontent  .about h2{
-color:white;
-text-transform: uppercase;
-margin-bottom: 30px;
-
-      }
-      .mycontent .about p{
-          color:white;
-          opacity:0.5;
-      }
-      .mycontent .link{
-          float: right;
-          width: 20%;
-          height: 200px;
-      }
-      .mycontent .link p{
-          color:white;
-text-transform: uppercase;
-margin-bottom: 30px;
-      }
-      .mycontent .link ul{
-          list-style: none;
-      }
-      .mycontent .link ul li{
-          margin: 5px;
-      }
-      .mycontent .link ul li a{
-         color: white; 
-         text-decoration: none;
-         opacity:0.5;
-       
-      }
-       .mycontent::after{
-          content: '';
-          clear: both;
-          display: block;
-      }
-      .regis{
-         width: 100%;
-          margin-top: 50px;
-          /* display: flex;
-          justify-content: center;
-          align-items: center; */
-      }
-      .regis h1{
-          text-align: center;
-          color: white;
-          /* margin-right: 20px; */
-      }
-      .regis a{
-          
-          display: block;
-          margin:auto;
-          margin-top: 20px;
-          text-align: center;
-          line-height: 26px;
-          color: white; 
-         text-decoration: none;
-         height: 35px;
-         width: 150px;
-         padding:5px;
-         background-color: rgba(76, 113, 192, 0.747);
-         border-radius: 15px;
-        
-      }
-      .regis a:hover{
-      background-color: red;
-      }
-  
-      .social{
-          width: 100%;
-          border-top:2px solid rgba(255,255,255,0.1);
-          margin-top:50px;
-          padding-top: 40px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-      }
-      .social i{
-color: white;
-font-size: 20px;
-    }
-    .social .face{
-        margin:20px;
-padding:15px;
-        border-radius: 100%;
-        background-color: rgb(106, 106, 206);
-    }
-    .social .insta{
-        margin:20px;
-padding:15px;
-        border-radius: 100%;
-        background-color: purple;
-    }
-    .social .twit{
-        margin:20px;
-padding:15px;
-        border-radius: 100%;
-        background-color: skyblue;
-
-    }
-    .social .linked{
-        margin:20px;
-padding:15px;
-        border-radius: 100%;
-        background-color: blueviolet;
-    }
-    .social .gmail{
-        margin:20px;
-padding:15px;
-        border-radius: 100%;
-        background-color: red;
-    }
-
-    .social .insta:hover,.face:hover,.gmail:hover,.twit:hover,.linked:hover{
-        background-color:rgb(219, 186, 0)
-    }
-    .last{
-                color:whitesmoke;
-      display: block;
-      width: 180px;
-        margin: 0 auto;
-        margin-top: 20px;
-        opacity: 0.5;
-    }
-  
-
-
-        
-        
-    </style>
+    <link rel="stylesheet" href="css files/index.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="../MiniProject-sem05/images/h.jpg"  alt="">
+            <img src="images/h.jpg"  alt="">
             <p>House <span style="color: gray; opacity: 0.7;font-size:30px;">Management</span></p>
             <div class="nav">
                 <ul>
                     <li><a href="#">home</a></li>
                     <li><a href="html pages/signup.html">signup</a></li>
                     <li><a href="html pages/LogIn.html">login</a></li>
-                    <li ><a href="Bhagat mini-project/html/Bhagatsearch.html" style="background-color: teal;font-size: 20px; text-transform: none;padding: 10px 20px;">Search</a></li>
+                    <li ><a href="Bhagat mini-project/html/Bhagatsearch.php" style="background-color: teal;font-size: 20px; text-transform: none;padding: 10px 20px;">Search</a></li>
                   
                 </ul>
             </div>
@@ -512,25 +44,25 @@ padding:15px;
             </div>
              <div class="box">
             <div class="box1">
-                <img src="../MiniProject-sem05/images/h2.jpg" alt="">
-                <h2 style="text-align: center;color: blue;margin-top:20px;margin-bottom:20px;font-family: Arial, Helvetica, sans-serif;">Content Title</h2>
-                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:20px;">sub title</h4>
+                <img src="images/h2.jpg" alt="">
+                <h2 style="text-align: center;color: blue;margin-top:10px;margin-bottom:5px;font-family: Arial, Helvetica, sans-serif;">Content Title</h2>
+                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:10px;">sub title</h4>
                 <p style="color: white;opacity: 0.5;text-align: center;padding:5px" >
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea consequatur cum mollitia delectus molestias, tempore, dolorum similique vero enim consectetur debitis illo consequuntur! Commodi laboriosam eaque assumenda expedita tenetur sed.
 
                 </p>
             </div>
             <div class="box1">
-                <img src="../MiniProject-sem05/images/h3.jpg" alt="">
-                <h2 style="text-align: center;color: blue;margin-bottom:20px;margin-top:20px;font-family: Arial, Helvetica, sans-serif;">Content Title</h2>
-                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:20px;">sub title</h4>
+                <img src="images/h3.jpg" alt="">
+                <h2 style="text-align: center;color: blue;margin-bottom:5px;margin-top:10px;font-family: Arial, Helvetica, sans-serif;">Content Title</h2>
+                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:10px;">sub title</h4>
                 <p style="color: white;opacity: 0.5;padding:5px" >
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea consequatur cum mollitia delectus molestias, tempore, dolorum similique vero enim consectetur debitis illo consequuntur! Commodi laboriosam eaque assumenda expedita tenetur sed.
 
                 </p></div>
-            <div class="box1"><img src="../MiniProject-sem05/images/h4.jpg" alt="">
-                <h2 style="text-align: center;color: blue;margin-top:20px;margin-bottom:20px;font-family: Arial, Helvetica, sans-serif;">Content Title</h2>
-                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:20px;">sub title</h4>
+            <div class="box1"><img src="images/h4.jpg" alt="">
+                <h2 style="text-align: center;color: blue;margin-top:10px;margin-bottom:5px;font-family: Arial, Helvetica, sans-serif;">Content Title</h2>
+                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:10px;">sub title</h4>
                 <p style="color: white;opacity: 0.5;padding:5px" >
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea consequatur cum mollitia delectus molestias, tempore, dolorum similique vero enim consectetur debitis illo consequuntur! Commodi laboriosam eaque assumenda expedita tenetur sed.
 
@@ -541,11 +73,11 @@ padding:15px;
         <h1 style="text-align: center;color: blue;margin-top:20px;margin-bottom:20px;font-family: Arial, Helvetica, sans-serif;">Some Specials</h1>
 <div class="slider">
     <div class="slide-image">
-    <img src="../MiniProject-sem05/images/h4.jpg" alt="">
-    <img src="../MiniProject-sem05/images/h3.jpg" alt="">
-    <img src="../MiniProject-sem05/images/h5.jpg" alt="">
-    <img src="../MiniProject-sem05/images/h2.jpg" alt="">
-    <img src="../MiniProject-sem05/images/logo.jpg" alt="">
+    <img src="images/h4.jpg" alt="">
+    <img src="images/h3.jpg" alt="">
+    <img src="images/h5.jpg" alt="">
+    <img src="images/h2.jpg" alt="">
+    <img src="images/logo.jpg" alt="">
     </div>
 
 </div>
@@ -554,31 +86,31 @@ padding:15px;
         <div class="colloboraters">
             <h1 style="text-align: center;color: blue;">Our Colloboraters</h1>
             <div class="colbo1">
-                <img src="../semester-5/images/avatar1.png" alt="">
+                <img src="images/avatar1.png" alt="">
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
                      deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
                 </p>
             </div>
             <div class="colbo2">
-                <img src="../semester-5/images/avatar2.png" alt="">
+                <img src="images/avatar2.png" alt="">
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
                      deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
                 </p>
             </div>
             <div class="colbo1">
-                <img src="../semester-5/images/avatar3.png" alt="">
+                <img src="images/avatar3.png" alt="">
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
                      deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
                 </p>
             </div>
             <div class="colbo2">
-                <img src="../semester-5/images/avatar4.jpg" alt="">
+                <img src="images/avatar4.jpg" alt="">
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
                      deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
                 </p>
             </div>
             <div class="colbo1">
-                <img src="../semester-5/images/avatar5.png" alt="">
+                <img src="images/avatar5.png" alt="">
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
                      deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
                 </p>

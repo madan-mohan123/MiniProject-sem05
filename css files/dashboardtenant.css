@@ -1,0 +1,331 @@
+*{
+    padding: 0;
+    margin: 0;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    /* background-color: red; */
+    /* background-color:rgb(173, 6, 89); */
+    background-image: linear-gradient(orange,blue,teal);
+}
+.container{
+    width: 100%;
+    height: 100vh;;
+}
+.header{
+    background-color: rgba(51, 49, 49,0.8);
+    height: 80px;
+    padding: 0 20px;
+    
+}
+.nav{
+    float: right;
+}
+.nav ul li{
+    list-style: none;
+    display: inline-block;
+    line-height: 80px;
+}
+.nav ul li a{
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    margin-left: 5px;
+margin-right: 5px;
+}
+.nav ul li a:hover{
+    background-image: linear-gradient(red,teal);
+box-shadow: 0 2px 10px 5px rgb(0, 255, 213);
+position: relative;
+top:-5px;
+color:rgb(7, 5, 12);
+}
+.nav ul li:hover .menu{
+    display: block;
+    
+}
+
+.header img{
+    border-radius: 20px 0 20px 0;
+    width:130px;
+     height:90px;
+     padding-top: 5px;
+     float:left;
+   
+}
+.header p{
+    
+    display: inline-block;
+    line-height: 80px;
+    margin-left: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    color:rgb(209, 209, 200);
+}
+.menu{
+    position:absolute;
+    right: 0;
+    top:80px;
+    width: 170px;
+   display: none;
+   background-image: linear-gradient(skyblue,pink);
+}
+
+.menu ul li{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    
+    
+    
+}
+.menu ul li a{  
+    font-size: 16px;
+    color: white;
+    padding: 7px 20px;
+    border-radius: 0px;
+    transition: 0.5s;    
+}
+.menu ul li a:hover{    
+border-left:5px solid White;
+color: white;
+
+}
+.body{
+    clear: both;
+    margin-top:20px;
+    width: 100%;
+    height: 100%;
+    border-top:5px solid black;
+
+}
+.body .left{
+    width: 20%;
+    background-color: rgb(51, 49, 49);
+    color: white;
+    /* margin-top: 30px; */
+    height: 100%;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+   float: left;
+}
+.left img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: block;
+    margin: 20px auto;
+   
+}
+.left p{
+    border-bottom: 4px solid rgba(209, 209, 200,0.5);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.dashboard{
+width: 80%;
+  
+  float: left; 
+  /* background-color: white;  */
+}
+.dashboard .section-1{
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    margin-top: 40px;
+    margin-left: 120px;
+    float: left;
+border-radius: 50%;
+background-color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 25px;
+transition: 0.9s;
+}
+.dashboard  .section-1:hover{
+    background-color: rgb(216, 147, 18);
+    transform: rotate(360deg);
+}
+
+
+.profile{
+float: left;
+width:80%;
+
+background-color: white;
+display: none;
+}
+
+
+.profile img{
+display: block;
+/* clear: both; */
+width: 150px;
+height: 150px;
+border-radius: 50%;
+margin: 20px auto;
+margin-bottom: 40px;
+}
+.profile label{
+display: block;
+
+
+margin-bottom: 10px;
+margin-left: 50px;
+
+}
+.profile input{
+display: block;
+color: rebeccapurple;
+margin-bottom: 30px;
+margin-left: 50px;
+width: 400px;
+height: 30px;
+
+
+}
+.profile button{
+display: block;
+margin-top: 30px;
+margin-left: 50px;
+margin-bottom: 30px;
+width: 100px;
+height: 30px; 
+color: white; 
+border-radius: 15px;
+background-image:linear-gradient(blue,white);
+border: none;
+font-size: 13px;
+}
+.profile button:hover{
+box-shadow: 0 0 10px 2px green;
+}
+
+
+.application{
+display: none;
+float: left;
+width:80%;
+
+background-color: white;
+height: 100%;
+}
+
+
+
+.application label{
+display: block;
+
+margin-bottom: 15px;
+margin-left: 50px;
+
+}
+.application input{
+display: block;
+margin-bottom: 30px;
+margin-left: 50px;
+width: 500px;
+height: 30px;  
+}
+.application textarea{
+display: block;
+margin-left: 50px;
+}
+.application button{
+display: block;
+margin-top: 30px;
+margin-left: 50px;
+margin-bottom: 30px;
+width: 100px;
+height: 30px; 
+color: white; 
+border-radius: 15px;
+background-image:linear-gradient(blue,white);
+border: none;
+font-size: 13px;
+}
+.application button:hover{
+box-shadow: 0 0 10px 2px green;
+}
+
+main.accontainer{
+    width: 400px;
+    height: 500px;
+    margin: 70px auto;
+ position: absolute;
+ top:100px;
+ left:40%;
+ right: 40%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px teal;
+    padding: 5px;
+    display: none;
+   
+}
+.accontainer #acount{
+    width: 90%;
+    height: 40px;
+    display: block;
+ 
+    margin:20px auto;
+    margin-bottom: 0;
+}
+.accontainer #date,#ccv{
+    display:block;
+    height: 40px;
+    width: 90%;
+    margin:20px auto;
+    margin:20px 20px 0 20px;
+}
+.accontainer button{
+    width: 90%;
+    height: 40px;
+    color: white;
+    border-radius: 20px;
+    background-color: rgb(146, 7, 211);
+    margin: 20px;
+    border: none;
+    font-size: 20px;
+}
+.accontainer #credit,#debit,#net{
+    margin-right: 20px;
+}
+.accontainer  label{
+    display: block;
+    margin-left:20px;
+}
+.accontainer .image{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main.accontainer img{
+width: 50px;
+height: 50px;
+margin: 0px 10px 20px 20px;
+border-radius: 10px;
+}
+.accontainer input:focus{
+    outline: none;
+    box-shadow: 0 0 10px 2px orange;
+}
+.accontainer button:hover{
+    background-image: linear-gradient(pink,red) ;
+}
+.accontainer i{
+display: block;
+margin: 20px;
+margin-top: 10px;
+border: 1px solid rebeccapurple;
+float:right;
+}
