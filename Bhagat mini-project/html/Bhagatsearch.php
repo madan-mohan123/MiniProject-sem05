@@ -45,7 +45,7 @@ border-radius: 25px;
 padding:10px;
 background-color: rgb(168, 108, 218);
 color: white;
-/* margin-right: 30px; */
+
 margin: 5px 30px;
 font-size: 20px;
 height: 25px;
@@ -59,7 +59,7 @@ border-radius: 25px;
 padding:10px;
 background-color: rgb(214, 119, 30);
 color: white;
-/* margin-right: 30px; */
+
 font-size: 20px;
 height: 25px;
 display: flex;
@@ -76,8 +76,9 @@ p{
    </style>
 </head>
 <body>
-    <nav id="navbar">
-        <div id="logo">
+    <!-- <nav id="navbar">
+         <div id="logo">
+        <img src="../../images/h.jpg"  alt="">
         </div>
         <ul>
             <li class="item"><a href="../../index.html">Home</a></li>
@@ -85,7 +86,21 @@ p{
             <li class="item"><a href="#S">Services</a></li>
             <li class="item"><a href="#">Contact Us</a></li>
         </ul>
-    </nav>
+    </nav> -->
+    <div class="header">
+            <img src="../../images/h.jpg"  alt="">
+            <p>House <span style="color: gray; opacity: 0.7;font-size:30px;">Management</span></p>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">home</a></li>
+                    <li><a href="../../html pages/signup.html">signup</a></li>
+                    <li><a href="../../html pages/LogIn.html">login</a></li>
+                    <!-- <li ><a href="Bhagat mini-project/html/Bhagatsearch.php" style="background-color: teal;font-size: 20px; text-transform: none;padding: 10px 20px;">Search</a></li>
+                   -->
+                </ul>
+            </div>
+          
+        </div>
     <section id="home">
         <h1 class="h-primary">Welcome to Online rental system</h1>
         
@@ -93,14 +108,15 @@ p{
 
         <button class = "btn" >book now</button>
     </section>
+
     <section id="Search">
 
         <h1 class="h-primary center">SEARCH YOUR DREAM HOME</h1>
         <div id="Search-box">        
-            <form action="Bhagatsearch.php" method="POST">
+            <form action="Bhagatsearch.php" method="POST" >
 
                  <div class="form-group">
-                     <div id="loc">
+                     <div class="loc">
                  <label for="location">Societies:</label>
                  <select name="Location" id="location">
                      <option value="Radha valley">Radha Valley</option>
@@ -110,7 +126,7 @@ p{
                      <option value="Kanha Dham">Kanha Dham</option>
                  </select>
                 </div>
-                 
+                <div class="loc">
                  <label for="type">Type:</label>
                  <select name="type" id="type">
                      <option value="Apartments">Apartments</option>
@@ -120,42 +136,38 @@ p{
                      
                     </select>
                     </div>
+</div>
             
+              
                 <div class="form-group">
-            
-                <div id="date">
-                <label for="from-Date">from-Date:</label>
-                <input type="date" name="fromdate" id="from-Date">
-                </div>
-
-                <label for="To-Date">To-Date:</label>
-                 <input type="date" name="To-Date" id="To-Date">
-                </div>
-                <div class="form-group">
-                    <div id="number">
+                    <div class="loc">
                     
-                    <label for="number">Bed-Rooms:</label>
-                    <input type="text" name="bhk" id="number">
-                    </div>
-
+                    <label for="Bed-rooms">Bed-Rooms:</label>
+                    <input type="text" name="bhk" id="Bed-rooms" placeholder="like 3bhk">
+</div>
+<div class="loc">
                  <label for="city">City:</label>
-                 <input type="text" name="city" id="city" required>
+                 <input type="text" name="city" id="city"  placeholder="mathura" required>
                 </div>
+</div>
             
 
                 <div id="button">
-                <div>
-                <input type="submit" value="Search">
+              
+                <input type="submit" value="Search" style="margin-right:20px;">
                 <input type="reset" value="Reset">
         
-            </div>
         </div>
+
+
         </form>
          </div>   
     </section>
     <section class="search-content" >
-        
-     <?php
+    
+    <?php
+    
+       
      include('../../php/connection.php'); 
      $bhk= $_POST['bhk'];  
      $city = $_POST['city'];
@@ -173,8 +185,11 @@ p{
            echo "<table>";
           
             echo "<tr>";
-            
-              echo "<td> ";
+           echo "<td width='250px' rowspan='3' >";
+          echo "<img src='../../images/h5.jpg' alt='madan'>";
+          echo "</td>";
+          echo "<tr>";
+              echo "<td style='color: rgb(86, 14, 219);'> ";
                
                  echo "<h3>Specification:</h3>";  
                  echo "<p>";
@@ -183,7 +198,7 @@ p{
                 echo "<p>Address: sant nagar near pushpanjali</p>";   
                  echo "<p>";
                 echo $city ;
-                echo ",up</p> ";
+                echo ", up</p> ";
                      
                     echo "<p>";
                     echo " Ac rooms";
@@ -193,7 +208,19 @@ p{
                 echo "</td>";
                
              echo "</tr>";
-         
+
+            echo  "<tr>";
+             echo "<td class='cn1' style='float: left; color: black; padding:5px 5px 5px 20px;margin-top:5px;'>";
+                echo  "contact no. 985632752";
+                    echo "</td>";
+               echo "<td  class='buy' style='float: right;'>";
+             echo "<a href='../../html pages/LogIn.html'>Buy</a>";
+           echo "</td>";
+           echo "<td class='cn' style='float: right;'>";
+           echo  "Rent 4000/-"; 
+          echo "</td>";
+         echo "</tr>";
+         echo "</tr>";
               
              echo "</table>" ;
            
@@ -204,47 +231,17 @@ p{
       
      }
      mysqli_close($con);
-     ?>
-        
-      
-
-         <table>
-            <tr >
-                <td width="250px" rowspan="3" ><img src="../../images/h5.jpg" ></td>
-
-            
-              <tr><td style="color: rgb(86, 14, 219);">
-               
-                 <h3 style="color: black;">Specification:</h3>  
-                 <p><?php echo $bhk ?></p>   
-                <p>Address: sant nagar near pushpanjali</p>   
-                 <p> <?php echo $city ?>,up</p>
-                     
-                     <p>  Ac rooms</p>
-                     <h3 style="margin-top:10px;">Available now</h3>
+    
+    
+    ?>
+    
   
-                </td>
-               
-             </tr>
-         
-               <tr >
-                 <td class="cn1" style="float: left; color: black; padding:5px 5px 5px 20px;margin-top:5px;">
-                     contact no. 985632752
-                        </td>
-                   <td  class="buy" style="float: right;">
-                 <a href="LogIn.html">Buy</a>
-               </td>
-               <td class="cn" style="float: right;">
-                Rent 4000/- 
-              </td>
-             </tr>
-             
-            </tr>
-        </table> 
+        
+ 
     </section>
 
     <section class="servicescontainer">
-    <div id="S">
+   
      
         <h1 class="h-primary center">our services </h1>
         <div id="services">
@@ -264,9 +261,9 @@ p{
                 <p class = "center">We have societies which are very corporative.</p>
             </div>
         </div>
-        </div>
+       
     </section>
-    <section class="House section"> 
+    <section class="House-section"> 
         <h1 class="h-primary center">Most viewed houses</h1>
         <div id="houseimage">
         <div class="houses">
@@ -286,9 +283,9 @@ p{
                 <img src="../images/apart2.jpg" alt="House image">
             </div>
         </div>
-    </div>
+    
     </section>
-    <div id="c">
+    
     <div class="content-box">
         <div class="about">
             <h2 class="h-secondary center">ABOUT US</h2>
@@ -321,7 +318,7 @@ p{
         </div>
      
     </div>
-    </div>
+    
     
     <footer>
         <div class="center">

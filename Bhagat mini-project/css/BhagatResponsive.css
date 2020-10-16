@@ -1,5 +1,5 @@
 /* Navigation bar */
-#navbar {
+/* #navbar {
     flex-direction: column;
     width: 100%;
 }
@@ -15,7 +15,7 @@
     padding: 0px 10px;
 }
 
-/* home section */
+/* home section 
 #home{
     height: 580px;
     flex-direction: column;
@@ -28,7 +28,7 @@
 }
 
 
-/* services section */
+/* services section 
 #services{
     display: block;
 }
@@ -40,7 +40,7 @@
     height: 20%;
 }
 
-/* house section */
+/* house section 
 #houseimage {
     display: block;
 }
@@ -80,7 +80,7 @@
 input[type="button" i] {
     padding: 13px 13px;
 }
-/* utility section */
+/* utility section 
 .content-box{
     height:50%;
 }
@@ -117,4 +117,4 @@ p{
 .btn{
     padding: 15px 25px;
     font-size:2.1rem;
-}
+} */
