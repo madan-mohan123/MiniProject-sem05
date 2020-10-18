@@ -1,3 +1,11 @@
+<?php
+session_start();
+?>
+<?php
+if($_SESSION[email]==""){
+    include('../html pages/Login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +23,7 @@
             <div class="nav">
                 <ul>
                     <li><a href="../index.html">home</a></li>
-                    <li><a href="#">LogOut</a></li>
+                    <li><a href="../php/logout.php">LogOut</a></li>
                     <li>
                         <a href="#">Services</a>
                         <div class="menu">
@@ -24,7 +32,7 @@
                             <li><a href="#" onclick="dashboard()">DashBoard</a></li>
                             <li><a href="#" onclick="tenant()">MyTenant</a></li>
                             <li><a href="#" onclick="profile()">profile</a></li>
-                            <li><a href="Owner.html">Apartment</a></li>
+                            <li><a href="../html pages/owner.html">Apartment</a></li>
                             <li><a href="#" onclick="complaint()">Complaint</a></li>
                             <li><a href="#">Details</a></li>
                         </ul>
@@ -36,8 +44,12 @@
         </div>
 <div class="body">
         <div class="side left">
-            <img src="../../semester-5/images/avatar2.png" alt="">
-            <p>Madan Mohan</p>
+            <img src="../images/avatar2.png" alt="">
+            <p>
+                <?php
+                echo $_SESSION[username];
+                ?>
+            </p>
             <p>659898645</p>
             <p>Owner</p>
             <p>customers: 3</p>

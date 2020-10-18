@@ -1,3 +1,11 @@
+<?php
+session_start();
+?>
+<?php
+if($_SESSION[email]==""){
+    include('../html pages/Login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -245,7 +253,7 @@ transition: 0.9s;
             <div class="nav">
                 <ul>
                     <li><a href="../index.html">home</a></li>
-                    <li><a href="#">LogOut</a></li>
+                    <li><a href="../php/logout.php">LogOut</a></li>
                     <li>
                         <a href="#">Services</a>
                         <div class="menu">
@@ -266,8 +274,12 @@ transition: 0.9s;
         </div>
 <div class="body">
         <div class="left">
-            <img src="../../semester-5/images/avatar2.png" alt="">
-            <p>Madan Mohan</p>
+            <img src="../images/avatar2.png" alt="">
+            <p>
+                <?php
+                echo $_SESSION[username];
+                ?>
+            </p>
             <p>659898645</p>
             <p>Tenant</p>
 

@@ -1,4 +1,19 @@
-
+<?php
+session_start();
+?>
+<?php
+if($_SESSION[email]==""){
+   
+}
+else{
+    if($_SESSION[hpost]=="Owner"){
+        require_once 'dashboardowner.php';
+     }
+     else{
+         require_once 'dashboardtenant.php'; 
+     }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
