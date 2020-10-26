@@ -22,13 +22,13 @@ if(mysqli_num_rows($result)){
    $_SESSION["email"]=$email;
  
 //  include('../html pages/dashboardowner.html');
-  include('test.php');
-// if($_SESSION[hpost]=="Owner"){
-//    require_once '../html pages/dashboardowner.php';
-// }
-// else{
-//     require_once '../html pages/dashboardtenant.php'; 
-// }
+  //include('test.php');
+if($_SESSION[hpost]=="Owner"){
+   require_once '../html pages/dashboardowner.php';
+}
+else{
+    require_once '../html pages/dashboardtenant.php'; 
+}
 
  }
 else {

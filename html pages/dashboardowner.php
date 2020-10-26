@@ -5,7 +5,9 @@ session_start();
 if($_SESSION[email]==""){
     include('../html pages/Login.php');
 }
-?>
+else{
+
+echo '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,22 +44,28 @@ if($_SESSION[email]==""){
             </div>
           
         </div>
+        ';
+        echo '
 <div class="body">
         <div class="side left">
             <img src="../images/avatar2.png" alt="">
-            <p>
-                <?php
+            <p>';
+               
                 echo $_SESSION[username];
-                ?>
-            </p>
+              
+         
+                echo'   </p>
             <p>659898645</p>
             <p>Owner</p>
             <p>customers: 3</p>
 
         </div>
+        ';
+
+        echo '
  
         <div class="right tenant" id="tenant" >
-<p style="text-align: center;font-size: 70px;margin-bottom: 30px;color:rgb(231, 113, 17);border-bottom: 3px solid rgba(209, 209, 200,0.5);">My Tenant's</p>
+<p style="text-align: center;font-size: 70px;margin-bottom: 30px;color:rgb(231, 113, 17);border-bottom: 3px solid rgba(209, 209, 200,0.5);">My Tenant</p>
 <div class="card">
     <img src="../images/h4.jpg" alt="">
     <p style="text-align: center;font-size: 30px; color: white;margin-bottom: 15px;">Name</p>
@@ -97,11 +105,12 @@ if($_SESSION[email]==""){
 
 
         </div>
+        ';
 
-
+echo '
         <div class=" right profile" id="profile" >
             <h1 style="text-align: center;font-size: 30px;">Profile</h1>
-            <img src="../../semester-5/images/avatar2.png" alt="">
+            <img src="../images/avatar2.png" alt="">
             <label for="name">Name
 <input type="text">
 </label>
@@ -144,7 +153,8 @@ if($_SESSION[email]==""){
     
             </div>
 
-
+';
+echo '
 <div class="right dashboard" id="dashboard">
             <h2 style="text-align: center;color: white;margin: 20px 0;">My Homes</h2>
         <table>
@@ -281,6 +291,8 @@ if($_SESSION[email]==""){
         </table>
     </div>
     </div>
+    ';
+    echo '
     <script>
         function profile(){
             document.getElementById("dashboard").style.display="none";
@@ -311,3 +323,6 @@ if($_SESSION[email]==""){
 </div>
 </body>
 </html>
+';
+}
+?>

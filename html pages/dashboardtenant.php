@@ -5,7 +5,9 @@ session_start();
 if($_SESSION[email]==""){
     include('../html pages/Login.php');
 }
-?>
+else{
+
+echo'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -246,7 +248,7 @@ transition: 0.9s;
         </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="blur">
         <div class="header">
             <img src="../images/h.jpg"  alt="">
             <p>House <span style="color: gray; opacity: 0.7;font-size:30px;">Management</span></p>
@@ -258,7 +260,7 @@ transition: 0.9s;
                         <a href="#">Services</a>
                         <div class="menu">
                         <ul>
-                            <li><a href="#bill">Billing</a></li>
+                        <li><a href="#" onclick="transaction()">Payment</a></li>
                             <li><a href="#" onclick="dashboard()">DashBoard</a></li>
                             
                             <li><a href="#" onclick="profile()">profile</a></li>
@@ -276,9 +278,9 @@ transition: 0.9s;
         <div class="left">
             <img src="../images/avatar2.png" alt="">
             <p>
-                <?php
+              ';
                 echo $_SESSION[username];
-                ?>
+               echo '
             </p>
             <p>659898645</p>
             <p>Tenant</p>
@@ -302,7 +304,7 @@ transition: 0.9s;
 
         <div class="right profile" id="profile" >
             <h1 style="text-align: center;font-size: 30px;">Profile</h1>
-            <img src="../../semester-5/images/avatar2.png" alt="">
+            <img src="../images/avatar2.png" alt="">
             <label for="name">Name
 <input type="text">
 </label>
@@ -344,7 +346,42 @@ transition: 0.9s;
     
     
             </div>
+            
 </div>
+</div>
+
+<main class="accontainer" id="close">
+    <a href="#"><i class="cancel" onclick="close1()">n</i></a>
+    <h2 style="text-align: center;margin: 0 20px 20px 20px; clear: both;">Choose your Transaction</h2>
+    <section class="image">
+    <img src="../images/sbi.jpg" alt="">
+    <img src="../images/hdfc.jpg" alt="">
+    <img src="../images/paytm.jpg" alt="">
+    </section>
+    
+           <form action="">
+               <label for="credit">
+               <input type="radio" name="info" id="credit">
+               Credit cart
+               </label>
+               <label for="debit">
+               <input type="radio" name="info" id="debit">
+               Debit card
+               </label>
+               <label for="net">
+               <input type="radio" name="info" id="net">
+              Net Banking
+               </label>
+    
+    <input type="number" name="" id="acount" placeholder="Account number">
+    <input type="datetime" name="" id="date" placeholder="Expiray date">
+    <input type="number" name="" id="ccv" placeholder="ccv">
+    <button>
+        next
+    </button>
+    </form>
+       </main>
+
         <script>
             function profile(){
                 document.getElementById("dashboard").style.display="none";
@@ -366,6 +403,20 @@ transition: 0.9s;
                 document.getElementById("complaint").style.display="none";
                 document.getElementById("dashboard").style.display="block";
             }
+            function close1(){
+                document.getElementById("blur").style.opacity="1";
+             document.getElementById("close").style.display="none";
+          }
+            function transaction(){
+          
+                document.getElementById("blur").style.opacity="0.3";
+               document.getElementById("close").style.display="block";
+               document.getElementById("close").style.opacity="1";
+              
+              }
         </script>
 </body>
 </html>
+';
+}
+?>

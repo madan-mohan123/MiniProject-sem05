@@ -2,18 +2,20 @@
 session_start();
 ?>
 <?php
-if($_SESSION[email]==""){
+
+if($_SESSION[email]!=""){
+    if($_SESSION[hpost]=="Owner"){
+      require_once 'dashboardowner.php';
+   
+     }
+     else{
+        require_once 'dashboardtenant.php'; 
+     
+     }
    
 }
 else{
-    if($_SESSION[hpost]=="Owner"){
-        require_once 'dashboardowner.php';
-     }
-     else{
-         require_once 'dashboardtenant.php'; 
-     }
-}
-?>
+echo '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +23,8 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css files/Login.css">
     <title>LogIn</title>
-   <style>
+    ';
+   echo '<style>
 
 *{
     margin: 0;
@@ -107,7 +110,7 @@ input{
 }
 .forget{
     clear: both;
-    /* border:1px solid orange; */
+   
     width: 170px;
     display: block;
     float: right;
@@ -116,12 +119,12 @@ input{
 }
 .forget::after{
     clear: both;
-    content: '';
+    content: "";
     display: block;
 }
 .goog{
     clear: both;
-    /* border:1px solid orange; */
+  
     background-color: white;
     color: black;
     width: 300px;
@@ -153,6 +156,9 @@ p{
     opacity: 0.7;
 }
    </style>
+   '; 
+
+echo '
 </head>
 <body>
     <div class="contain">
@@ -180,4 +186,7 @@ p{
 
      
 </body>
-</html>
+</html>'; 
+
+}
+?>
