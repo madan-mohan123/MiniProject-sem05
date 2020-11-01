@@ -5,11 +5,13 @@ session_start();
 
 if($_SESSION[email]!=""){
     if($_SESSION[hpost]=="Owner"){
-      require_once 'dashboardowner.php';
+     // require_once 'dashboardowner.php';
+      header("Location: ../html pages/dashboardowner.php");
    
      }
      else{
-        require_once 'dashboardtenant.php'; 
+       // require_once 'dashboardtenant.php'; 
+        header("Location: ../html pages/dashboardtenant.php");
      
      }
    

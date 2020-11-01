@@ -3,8 +3,13 @@ session_start();
 ?>
 
 <?php
-include('connection.php'); 
-     
+$host = "localhost";  
+$user = "root";  
+$password = '';  
+$db_name = "rental house management";  
+  
+$con = mysqli_connect($host, $user, $password, $db_name); 
+ 
 $password = $_POST['pass'];  
 $email = $_POST['email'];
 
@@ -17,17 +22,18 @@ if(mysqli_num_rows($result)){
     while($row=mysqli_fetch_assoc($result)){
         $_SESSION["hpost"]= $row["hpost"];
         $_SESSION["username"]=$row["username"];
-      
+       
     }
    $_SESSION["email"]=$email;
- 
-//  include('../html pages/dashboardowner.html');
-  //include('test.php');
+
 if($_SESSION[hpost]=="Owner"){
-   require_once '../html pages/dashboardowner.php';
+  // include '../html pages/dashboardowner.php';
+ 
+  header("Location: ../html pages/dashboardowner.php");
 }
 else{
-    require_once '../html pages/dashboardtenant.php'; 
+     //include '../html pages/dashboardtenant.php'; 
+     header("Location: ../html pages/dashboardtenant.php");
 }
 
  }

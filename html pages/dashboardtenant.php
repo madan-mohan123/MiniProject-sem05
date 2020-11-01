@@ -2,10 +2,40 @@
 session_start();
 ?>
 <?php
+$host = "localhost";  
+$user = "root";  
+$password = '';  
+$db_name = "rental house management"; 
+$con = mysqli_connect($host, $user, $password, $db_name); 
+?>
+<?php
 if($_SESSION[email]==""){
-    include('../html pages/Login.php');
+    //include('../html pages/Login.php');
+    header("Location: ../html pages/Login.php");
 }
 else{
+
+
+    if (isset($_POST['upload'])) { 
+              
+        $filename = $_FILES["uploadfile"]["name"]; 
+        $tempname = $_FILES["uploadfile"]["tmp_name"];     
+            $folder = "..//images/".$filename; 
+              
+      
+        
+            $sql2 = "UPDATE tenant SET pic='$filename' where email='$_SESSION[email]'"; 
+      
+            // Execute query 
+            mysqli_query($con, $sql2); 
+              
+            // Now let's move the uploaded image into the folder: image 
+            if (move_uploaded_file($tempname, $folder))  { 
+           
+            }else{ 
+           
+          } 
+      }
 
 echo'
 <!DOCTYPE html>
@@ -13,239 +43,9 @@ echo'
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css files/dashboardtenant.css">
     <title>Tenant Dashboard</title>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-        }
-        body{
-            /* background-color: red; */
-            /* background-color:rgb(173, 6, 89); */
-            background-image: linear-gradient(orange,blue,teal);
-        }
-        .container{
-            width: 100%;
-            height: 100vh;;
-        }
-        .header{
-            background-color: rgba(51, 49, 49,0.8);
-            height: 80px;
-            padding: 0 20px;
-            
-        }
-        .nav{
-            float: right;
-        }
-        .nav ul li{
-            list-style: none;
-            display: inline-block;
-            line-height: 80px;
-        }
-        .nav ul li a{
-            text-decoration: none;
-            font-size: 17px;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            transition: 0.5s;
-            margin-left: 5px;
-    margin-right: 5px;
-        }
-        .nav ul li a:hover{
-            background-image: linear-gradient(red,teal);
-box-shadow: 0 2px 10px 5px rgb(0, 255, 213);
-position: relative;
-top:-5px;
-color:rgb(7, 5, 12);
-        }
-        .nav ul li:hover .menu{
-            display: block;
-            
-        }
-       
-        .header img{
-            border-radius: 20px 0 20px 0;
-            width:130px;
-             height:90px;
-             padding-top: 5px;
-             float:left;
-           
-        }
-        .header p{
-            
-            display: inline-block;
-            line-height: 80px;
-            margin-left: 50px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 20px;
-            color:rgb(209, 209, 200);
-        }
-        .menu{
-            position:absolute;
-            right: 0;
-            top:80px;
-            width: 170px;
-           display: none;
-           background-image: linear-gradient(skyblue,pink);
-        }
-        
-        .menu ul li{
-            display: block;
-            height: 40px;
-            line-height: 40px;
-            
-            
-            
-        }
-        .menu ul li a{  
-            font-size: 16px;
-            color: white;
-            padding: 7px 20px;
-            border-radius: 0px;
-            transition: 0.5s;    
-        }
-        .menu ul li a:hover{    
-        border-left:5px solid White;
-        color: white;
-    
-        }
-        .body{
-            clear: both;
-            margin-top:20px;
-            width: 100%;
-            height: 100%;
-            border-top:5px solid black;
 
-        }
-        .body .left{
-            width: 20%;
-            background-color: rgb(51, 49, 49);
-            color: white;
-            /* margin-top: 30px; */
-            height: 100%;
-            padding-top: 20px;
-            padding-left: 20px;
-            padding-right: 20px;
-           float: left;
-        }
-        .left img{
-            width: 100px;
-            height: 100px;
-            border-radius: 100%;
-            display: block;
-            margin: 20px auto;
-           
-        }
-        .left p{
-            border-bottom: 4px solid rgba(209, 209, 200,0.5);
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-       
-.dashboard{
-    width: 80%;
-          
-          float: left; 
-          /* background-color: white;  */
-}
-        .dashboard .section-1{
-            padding: 20px;
-            width: 200px;
-            height: 200px;
-            margin-top: 40px;
-            margin-left: 120px;
-            float: left;
-border-radius: 50%;
-background-color: white;
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 25px;
-transition: 0.9s;
-        }
-        .dashboard  .section-1:hover{
-            background-color: rgb(216, 147, 18);
-            transform: rotate(360deg);
-        }
-
-
-        .profile{
-    float: left;
-    width:80%;
-
-    background-color: white;
-    display: none;
-}
-
-
-.profile img{
-    display: block;
-    /* clear: both; */
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 20px auto;
-    margin-bottom: 40px;
-}
-.profile label{
-    display: inline-block;
-    padding-right: 20px;
-    margin-right: 40px;
-    margin-bottom: 30px;
-    margin-left: 50px;
-    /* float: left; */
-}
-.profile input{
-    display: inline-block;
-    margin-right: 300px; 
-    margin-bottom: 30px;
-    margin-left: 30px;
-    width: 400px;
-    height: 30px;
-    /* border:hidden; */
-   
-}
-
-
-.application{
-    display: none;
-    float: left;
-    width:80%;
-    /* margin-left: 20px; */
-    /* height: 100%; */
-    background-color: white;
-    height: 100%;
-}
-
-
-
-.application label{
-    display: block;
-    padding-right: 20px;
-    margin-right: 40px;
-    margin-bottom: 30px;
-    margin-left: 50px;
-    /* float: left; */
-}
-.application input{
-    display: inline-block;
-    margin-right: 300px; 
-    margin-bottom: 30px;
-    margin-left: 30px;
-    width: 400px;
-    height: 30px;
-  
-   
-}
-.application textarea{
-    display: inline-block;
-}
-     
-        </style>
 </head>
 <body>
     <div class="container" id="blur">
@@ -275,9 +75,25 @@ transition: 0.9s;
           
         </div>
 <div class="body">
-        <div class="left">
-            <img src="../images/avatar2.png" alt="">
-            <p>
+        <div class="left">';
+            // <img src="../images/avatar2.png" alt="">
+
+
+            $sql = "SELECT pic FROM tenant where email='$_SESSION[email]'";
+            $result= mysqli_query($con,$sql);
+            
+            if(mysqli_num_rows($result)){
+            
+                while($row=mysqli_fetch_assoc($result)){
+                   
+                    echo "<img src='../images/".$row['pic']."' >";
+                break;
+                  echo "<br>";
+                }
+                }
+
+
+           echo' <p>
               ';
                 echo $_SESSION[username];
                echo '
@@ -302,28 +118,88 @@ transition: 0.9s;
         </div> 
 
 
+';
+echo'
+
+
+
         <div class="right profile" id="profile" >
-            <h1 style="text-align: center;font-size: 30px;">Profile</h1>
-            <img src="../images/avatar2.png" alt="">
-            <label for="name">Name
-<input type="text">
-</label>
-<label for="email">Email
- <input type="text">
-</label>
-<label for="contact">contact
-<input type="text">
-</label>
-<label for="profession">Profession
-<input type="text">
-</label>
-<h1 style="text-align: center;font-size: 30px;margin-bottom: 50px;">Account detail</h1>
-<label for="profession">Account
-    <input type="text">
-    </label>
-    <label for="profession">Bank
-        <input type="text">
-        </label>
+            <h1 style="text-align: center;font-size: 30px;">Profile</h1>';
+            // <img src="../images/avatar2.png" alt="">
+
+
+          
+
+
+            $sql1 = "SELECT pic FROM tenant where email='$_SESSION[email]'";
+            $result1= mysqli_query($con,$sql1);
+            
+            if(mysqli_num_rows($result1)){
+            
+                while($row=mysqli_fetch_assoc($result1)){
+                   
+                    echo "<img src='../images/".$row['pic']."' >";
+                break;
+                  echo "<br>";
+                }
+                } 
+
+
+
+           echo' <span style="margin:0 auto;display:block;width:400px;margin-bottom:30px;">
+            <label for="pic" style="display:inline-block;" class="pic">Select</label>
+            <form method="POST" action="../html pages/dashboardtenant.php" enctype="multipart/form-data" style="display:inline-block;">
+            <input type="file" id="pic" name="uploadfile" value="" style="display:none;">
+            <button type="submit" name="upload" style="display:inline-block;">UPLOAD</button> 
+            </form>
+            </span>';
+
+            $sql="SELECT username,owner_email,members,contact_no,Proof_id FROM tenant where email='$_SESSION[email]'";
+            $result= mysqli_query($con,$sql);
+            $username="";
+            $owneremail="";
+            $members="";
+            $contact="";    
+            $proof="";
+
+                  if(mysqli_num_rows($result)){
+                     while($row=mysqli_fetch_assoc($result)){
+ $username=$row['username'];
+$members=$row['members'];
+ $email=$_SESSION[email];
+ $contact=$row['contact_no'];
+ $proof=$row['proof_id'];
+ $owneremail=$row['owner_email'];
+
+                    }
+                }
+
+
+
+ 
+
+           echo'
+            <label for="name">Name</label>
+<input type="text" value='; echo $username; echo $username ;echo'>
+
+<label for="email">Email</label>
+ <input type="text" readonly value='; echo $email; echo'>
+
+<label for="contact">Contact</label>
+<input type="text" value='; echo $contact; echo'>
+
+<label for="">Members</label>
+<input type="text" readonly value='; echo $members; echo'>
+
+<label for="">ProofID</label>
+<input type="text" readonly value='; echo $proof; echo $proof ;echo'>
+
+<label for="">Owner Email</label>
+<input type="text" readonly value='; echo $owneremail; echo'>
+';
+
+echo'
+       
         </div>
 
 
@@ -332,16 +208,18 @@ transition: 0.9s;
             <h1 style="text-align: center;font-size: 30px;margin-bottom: 50px;">Complaint!</h1>
            
                 <!-- <h1 style="text-align: center;font-size: 30px;margin-bottom: 50px;">Give your Complaint here</h1> -->
-                <label for="">
-                     To<input type="text" placeholder="Email">
-                </label>
+                <label for=""> 
+                     To  </label><input type="text" placeholder="Email">
+                     <label for=""> 
+                     From  </label><input type="text" placeholder="Email">
+            
    
                 <label for="">
-                    Description
+                    Description  </label>
                     <textarea name="descript" id="" cols="80" rows="10"></textarea>
                     
-               </label>
-                <!-- <textarea name="descript" id="" cols="80" rows="10"></textarea> -->
+               
+                
     
     
     

@@ -2,11 +2,42 @@
 session_start();
 ?>
 <?php
+$host = "localhost";  
+$user = "root";  
+$password = '';  
+$db_name = "rental house management";  
+  
+$con = mysqli_connect($host, $user, $password, $db_name);  
+//include('connection.php'); 
+?>
+<?php
 if($_SESSION[email]==""){
-    include('../html pages/Login.php');
+    header("Location: Login.php");
 }
-else{
+else{  
+    
+    //for profile information
+    $sqlp="SELECT firstname,lastname,address,phone,gender,country_code FROM owner where email='$_SESSION[email]'";
+    $result= mysqli_query($con,$sqlp);
+     $fname="";
+     $lname="";
+     $email="";
+     $address="";
+     $contact="";     
 
+         if(mysqli_num_rows($result)){
+            while($row=mysqli_fetch_assoc($result)){
+$fname=$row['firstname'];
+$lname=$row['lastname'];
+$email="abc";
+$address=$row['address'];
+$contact=$row['phone'];
+
+
+            }
+
+        } 
+        //complete profile information
 echo '
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +65,7 @@ echo '
                             <li><a href="#" onclick="dashboard()">DashBoard</a></li>
                             <li><a href="#" onclick="tenant()">MyTenant</a></li>
                             <li><a href="#" onclick="profile()">profile</a></li>
-                            <li><a href="../html pages/owner.html">Apartment</a></li>
+                            <li><a href="owner.html">Apartment</a></li>
                             <li><a href="#" onclick="complaint()">Complaint</a></li>
                             <li><a href="#">Details</a></li>
                         </ul>
@@ -55,15 +86,20 @@ echo '
               
          
                 echo'   </p>
-            <p>659898645</p>
+            <p>
+            659898645
+            </p>
             <p>Owner</p>
-            <p>customers: 3</p>
+            <p>customers:
+             3
+             </p>
 
         </div>
         ';
 
-        echo '
- 
+
+        //tenants of owner
+        echo '       
         <div class="right tenant" id="tenant" >
 <p style="text-align: center;font-size: 70px;margin-bottom: 30px;color:rgb(231, 113, 17);border-bottom: 3px solid rgba(209, 209, 200,0.5);">My Tenant</p>
 <div class="card">
@@ -106,30 +142,85 @@ echo '
 
         </div>
         ';
+        //complete
+
+        //for change bydefault pic in profile
+        if (isset($_POST['upload'])) { 
+              
+            $filename = $_FILES["uploadfile"]["name"]; 
+            $tempname = $_FILES["uploadfile"]["tmp_name"];     
+                $folder = "..//images/".$filename; 
+                  
+          
+            
+                $sql2 = "UPDATE owner SET pic='$filename' where email='$_SESSION[email]'"; 
+          
+                // Execute query 
+                mysqli_query($con, $sql2); 
+                  
+                // Now let's move the uploaded image into the folder: image 
+                if (move_uploaded_file($tempname, $folder))  { 
+               
+                }else{ 
+               
+              } 
+          }
+          //complete pic 
 
 echo '
-        <div class=" right profile" id="profile" >
-            <h1 style="text-align: center;font-size: 30px;">Profile</h1>
-            <img src="../images/avatar2.png" alt="">
-            <label for="name">Name
-<input type="text">
-</label>
-<label for="email">Email
- <input type="text">
-</label>
-<label for="contact">contact
-<input type="text">
-</label>
-<label for="profession">Profession
-<input type="text">
-</label>
-<h1 style="text-align: center;font-size: 30px;margin-bottom: 50px;">Account detail</h1>
-<label for="profession">Account
-    <input type="text">
-    </label>
-    <label for="profession">Bank
-        <input type="text">
-        </label>
+        <div class=" right profile" id="profile" style="height:100vh;">
+            <h1 style="text-align: center;font-size: 30px;">Profile</h1>';
+           // <img src="../images/avatar2.png" alt="">
+            
+
+            $sql = "SELECT pic FROM owner where email='$_SESSION[email]'";
+$result= mysqli_query($con,$sql);
+
+if(mysqli_num_rows($result)){
+
+    while($row=mysqli_fetch_assoc($result)){
+       
+        echo "<img src='../images/".$row['pic']."' >";
+    break;
+      echo "<br>";
+    }
+    }
+
+           
+echo'
+            <span style="margin:0 auto;display:block;width:400px;margin-bottom:30px;">
+            <label for="pic" style="display:inline-block;" class="pic">Select</label>
+            <form method="POST" action="../html pages/dashboardowner.php" enctype="multipart/form-data" style="display:inline-block;">
+            <input type="file" id="pic" name="uploadfile" value="" style="display:none;">
+            <button type="submit" name="upload" style="display:inline-block;">UPLOAD</button> 
+            </form>
+            </span>
+            ';
+
+           
+           
+          
+ 
+
+
+               
+
+            echo '
+            <label for="name">Name</label>
+<input type="text" value='; echo $fname; echo $lname; echo'>
+
+<label for="email">Email</label>
+ <input type="text" readonly value='; echo $email; echo'>
+
+<label for="contact">Contact</label>
+<input type="text" value='; echo $contact; echo'>
+
+<label for="profession">Profession</label>
+<input type="text" value='; echo "Owner"; echo'>
+
+
+
+       
         </div>
   
 
@@ -139,14 +230,16 @@ echo '
            
                 <!-- <h1 style="text-align: center;font-size: 30px;margin-bottom: 50px;">Give your Complaint here</h1> -->
                 <label for="">
-                     To<input type="text" placeholder="Email">
-                </label>
+                     To
+                     </label>
+                     <input type="text" placeholder="Email">
+               
    
                 <label for="">
-                    Description
+                    Description </label>
                     <textarea name="descript" id="" cols="80" rows="10"></textarea>
                     
-               </label>
+               
                 <!-- <textarea name="descript" id="" cols="80" rows="10"></textarea> -->
     
     
@@ -154,144 +247,79 @@ echo '
             </div>
 
 ';
+
+
+
 echo '
 <div class="right dashboard" id="dashboard">
             <h2 style="text-align: center;color: white;margin: 20px 0;">My Homes</h2>
-        <table>
-            <tr >
-                <td width="250px" rowspan="3" ><img src="../images/h5.jpg" ></td>
-
+           
+            <h2 style="text-align: center;color: white;margin: 20px 0;">';echo $_SESSION[email] ;echo '</h2>'
+            ;
+            echo '<h2 style="text-align: center;color: white;margin: 20px 0;">'; echo "hello ";
+            echo $email; 
+            echo '</h2>';
+           
+            $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost FROM house where email='$_SESSION[email]'";
+            $result= mysqli_query($con,$sql);
+                 
+                 if(mysqli_num_rows($result)){
+                    while($row=mysqli_fetch_assoc($result)){
+echo'
+                        <table>
+                        <tr >
+                            <td width="250px" rowspan="3" ><img src="../images/h5.jpg" ></td>
             
-              <tr><td style="color: rgb(86, 14, 219);">
-               
-                 <h3 style="color: black;">Specification:</h3>  
-                 <p>3BHK </p>   
-                <p>Address: sant nagar near pushpanjali</p>   
-                 <p> Mathura ,up</p>
-                     
-                     <p>  Ac rooms</p>
-                     <h3 style="margin-top:10px;">Available now</h3>
-  
-                </td>
-               
-             </tr>
-         
-               <tr >
-                 <td class="cn1" style="float: left; color: black; padding:5px 5px 5px 20px;margin-top:5px;">
-                     contact no. 985632752
-                        </td>
-                   <td  class="buy" style="float: right;">
-                  Buy
-               </td>
-               <td class="cn" style="float: right;">
-                Rent 4000/- 
-              </td>
-             </tr>
-             
-            </tr>
-        </table>
-        <table>
-            <tr >
-                <td width="250px" rowspan="3" ><img src="../images/h5.jpg" ></td>
+                        
+                          <tr><td style="color: rgb(86, 14, 219);">
+                           
+                             <h3 style="color: black;">Specification:</h3>  
+                             <p>';
+                            echo $row['rooms']; 
+                             echo '</p>   
+                            <p>Address: ';
 
-            
-              <tr><td style="color: rgb(86, 14, 219);">
-               
-                 <h3 style="color: black;">Specification:</h3>  
-                 <p>3BHK </p>   
-                <p>Address: sant nagar near pushpanjali</p>   
-                 <p> Mathura ,up</p>
+                            echo $row['address'];
+                           echo '</p>   
+                             <p>';
+                              echo $row['city'];
+                              echo ' ,up</p>
+                                 
+                                 <p>
+                                   Ac rooms: ';
+                                   echo $row['acrooms'];
+                                   echo '</p>
+                                 <h3 style="margin-top:10px;">';
+                                 echo $row['status'];
+                                 echo'</h3>
+              
+                            </td>
+                           
+                         </tr>
                      
-                     <p>  Ac rooms</p>
-                     <h3 style="margin-top:10px;">Available now</h3>
-  
-                </td>
-               
-             </tr>
-         
-               <tr >
-                 <td class="cn1" style="float: left; color: black; padding:5px 5px 5px 20px;margin-top:5px;">
-                     contact no. 985632752
-                        </td>
-                   <td  class="buy" style="float: right;">
-                  Buy
-               </td>
-               <td class="cn" style="float: right;">
-                Rent 4000/- 
-              </td>
-             </tr>
-             
-            </tr>
-        </table>
-        <table>
-            <tr >
-                <td width="250px" rowspan="3" ><img src="../images/h5.jpg" ></td>
+                           <tr >
+                             <td class="cn1" style="float: left; color: black; padding:5px 5px 5px 20px;margin-top:5px;">
+                                 Contact No: ';
+                                  echo $row['contact'];
+                                    echo '</td>
+                               <td  class="buy" style="float: right;">
+                              Remove
+                           </td>
+                           <td class="cn" style="float: right;">
+                            Rent ';
+                            echo $row['cost'];
+                            echo '/- 
+                          </td>
+                         </tr>
+                         
+                        </tr>
+                    </table>
 
-            
-              <tr><td style="color: rgb(86, 14, 219);">
-               
-                 <h3 style="color: black;">Specification:</h3>  
-                 <p>3BHK </p>   
-                <p>Address: sant nagar near pushpanjali</p>   
-                 <p> Mathura ,up</p>
-                     
-                     <p>  Ac rooms</p>
-                     <h3 style="margin-top:10px;">Available now</h3>
-  
-                </td>
-               
-             </tr>
-         
-               <tr >
-                 <td class="cn1" style="float: left; color: black; padding:5px 5px 5px 20px;margin-top:5px;">
-                     contact no. 985632752
-                        </td>
-                   <td  class="buy" style="float: right;">
-                  Buy
-               </td>
-               <td class="cn" style="float: right;">
-                Rent 4000/- 
-              </td>
-             </tr>
-             
-            </tr>
-        </table>
-        <table>
-            <tr >
-                <td width="250px" rowspan="3" ><img src="../images/h5.jpg" ></td>
-
-            
-              <tr><td style="color: rgb(86, 14, 219);">
-               
-                 <h3 style="color: black;">Specification:</h3>  
-                 <p>3BHK </p>   
-                <p>Address: sant nagar near pushpanjali</p>   
-                 <p> Mathura ,up</p>
-                     
-                     <p>  Ac rooms</p>
-                     <h3 style="margin-top:10px;">Available now</h3>
-  
-                </td>
-               
-             </tr>
-         
-               <tr >
-                 <td class="cn1" style="float: left; color: black; padding:5px 5px 5px 20px;margin-top:5px;">
-                     contact no. 985632752
-                        </td>
-                   <td  class="buy" style="float: right;">
-                  Buy
-               </td>
-               <td class="cn" style="float: right;">
-                Rent 4000/- 
-              </td>
-             </tr>
-             
-            </tr>
-        </table>
-    </div>
-    </div>
-    ';
+';
+                        
+                    }
+                }
+ 
     echo '
     <script>
         function profile(){
@@ -319,6 +347,10 @@ echo '
             document.getElementById("complaint").style.display="none";
             document.getElementById("dashboard").style.display="block";
         }
+        function photo1(){
+           
+        }
+     
     </script>
 </div>
 </body>

@@ -149,9 +149,9 @@ color:rgb(54, 51, 63);
         <div class="nav">
             <ul>
                 <li><a href="../index.html">home</a></li>
-                <li><a href="#">LogOut</a></li>
+                <li><a href="../php/logout.php">LogOut</a></li>
                 <li>
-                    <a href="dashboardowner.html">Back</a>
+                    <a href="dashboardowner.php">Back</a>
                    
                 </li>
             </ul>
@@ -162,15 +162,19 @@ color:rgb(54, 51, 63);
     <div class="contain" >
     <img src="../images/h2.jpg" alt="">
     <h2 style="text-align: center;color: white;margin-bottom: 20px;">Apartment Information</h2>
-    <form action="">
-    <label for="room">Type<input type="text"></label>
-   <label for="room">Rooms<input type="text"></label>
-   <label for="City">City<input type="text"></label>
-   <label for="Adress">Address<input type="text"></label>
-   <label for="Contact">Contact<input type="number"></label>
+
+    <form action="../php/owner.php" method="POST">
+    <label for="room">Type<input type="text" name="room_type" placeholder="Local House/Flat/P.G"></label>
+   <label for="room">Rooms<input type="text" name="rooms" placeholder="3bh/2bhk/1bhk"></label>
+   <label for="ACroom">ACRooms<input type="text" name="acrooms" placeholder="Yes or No"></label>
+   <label for="City">City<input type="text" name="city"></label>
+   <label for="Adress">Address<input type="text" name="address"></label>
+   <label for="Contact">Contact<input type="number" name="contact"></label>
+   <label for="cost">Cost<input type="text" name="cost"></label>
    <button type="submit"> Submit</button>
    <button type="reset"> Reset</button>
    </form>
+
     </div>
     </div>
 </body>

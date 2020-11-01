@@ -1,3 +1,4 @@
+
 <?php   
     include('connection.php'); 
      
@@ -11,10 +12,13 @@
          $sql = "INSERT INTO account(USERNAME,PASSWORD,EMAIL,HPOST) VALUES ('$username','$password','$email','$hpost')"; 
          if($con->query($sql) === TRUE){
              if($hpost=="Tenant"){
-             include('../html pages/tenant1.html');
+           
+             header("Location: ../html pages/tenant1.html");
+
              }
              else{
-                include('../html pages/amitowner.html'); 
+               
+                header("Location: ../html pages/amitowner.html");
                 
              }
 

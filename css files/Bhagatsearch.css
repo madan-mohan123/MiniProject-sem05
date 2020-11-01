@@ -576,3 +576,69 @@ footer{
     text-align: center;
 }
 
+table{
+    width: 90%;
+    margin:30px auto;
+    background-color: rgba(172, 218, 236, 0.7);
+ 
+    border-radius: 20px; 
+    
+}
+table:nth-child(even){
+    background-color: rgba(129, 119, 119, 0.7); 
+}
+table,tr,td{
+    border-collapse: collapse;
+ 
+}
+table tr{
+    margin-bottom: 30px;
+  
+    border-spacing: 20px;
+  
+}
+td{
+  padding:20px 20px 0 20px;
+  font-size: 20px;
+  color: white;
+}
+td img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+.buy{
+width: 100px;
+border-radius: 25px;
+padding:10px;
+background-color: rgb(168, 108, 218);
+color: white;
+
+margin: 5px 30px;
+font-size: 20px;
+height: 25px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.cn{
+width: 150px;
+border-radius: 25px;
+padding:10px;
+background-color: rgb(214, 119, 30);
+color: white;
+
+font-size: 20px;
+height: 25px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 5px 30px;
+}
+p{
+    color: white;
+}
+.buy:hover{
+    background-color: goldenrod;
+}
+

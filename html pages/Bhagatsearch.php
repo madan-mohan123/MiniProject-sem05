@@ -5,96 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnlineRentalSystem</title>
     
-    <link rel="stylesheet" href="../css/Bhagatsearch.css" >
+    <link rel="stylesheet" href="../css files/Bhagatsearch.css" >
     <link rel="stylesheet" media="screen and (max-width: 1300px)" href="../css/BhagatResponsive.css">
-   <style>
-       table{
-    width: 90%;
-    margin:30px auto;
-    background-color: rgba(172, 218, 236, 0.7);
- 
-    border-radius: 20px; 
-    
-}
-table:nth-child(even){
-    background-color: rgba(129, 119, 119, 0.7); 
-}
-table,tr,td{
-    border-collapse: collapse;
- 
-}
-table tr{
-    margin-bottom: 30px;
-  
-    border-spacing: 20px;
-  
-}
-td{
-  padding:20px 20px 0 20px;
-  font-size: 20px;
-  color: white;
-}
-td img{
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-}
-.buy{
-width: 100px;
-border-radius: 25px;
-padding:10px;
-background-color: rgb(168, 108, 218);
-color: white;
 
-margin: 5px 30px;
-font-size: 20px;
-height: 25px;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.cn{
-width: 150px;
-border-radius: 25px;
-padding:10px;
-background-color: rgb(214, 119, 30);
-color: white;
-
-font-size: 20px;
-height: 25px;
-display: flex;
-align-items: center;
-justify-content: center;
-margin: 5px 30px;
-}
-p{
-    color: white;
-}
-.buy:hover{
-    background-color: goldenrod;
-}
-   </style>
 </head>
 <body>
-    <!-- <nav id="navbar">
-         <div id="logo">
-        <img src="../../images/h.jpg"  alt="">
-        </div>
-        <ul>
-            <li class="item"><a href="../../index.html">Home</a></li>
-            <li class="item"><a href="#c">About Us</a></li>
-            <li class="item"><a href="#S">Services</a></li>
-            <li class="item"><a href="#">Contact Us</a></li>
-        </ul>
-    </nav> -->
+  
     <div class="header">
-            <img src="../../images/h.jpg"  alt="">
+            <img src="../images/h.jpg"  alt="">
             <p>House <span style="color: gray; opacity: 0.7;font-size:30px;">Management</span></p>
             <div class="nav">
                 <ul>
-                    <li><a href="#">home</a></li>
-                    <li><a href="../../html pages/signup.html">signup</a></li>
-                    <li><a href="../../html pages/LogIn.html">login</a></li>
+                    <li><a href="../index.html">home</a></li>
+                    <li><a href="signup.html">signup</a></li>
+                    <li><a href="LogIn.php">login</a></li>
                     <!-- <li ><a href="Bhagat mini-project/html/Bhagatsearch.php" style="background-color: teal;font-size: 20px; text-transform: none;padding: 10px 20px;">Search</a></li>
                    -->
                 </ul>
@@ -120,19 +44,18 @@ p{
                  <label for="location">Societies:</label>
                  <select name="Location" id="location">
                      <option value="Radha valley">Radha Valley</option>
-                     <option value="O MAx">O MAX</option>
+                    
                      <option value="HR Conclave">HR Conclave</option>
-                     <option value="Refinery NAagr">Refinery Nagar</option>
+                 
                      <option value="Kanha Dham">Kanha Dham</option>
                  </select>
                 </div>
                 <div class="loc">
                  <label for="type">Type:</label>
                  <select name="type" id="type">
-                     <option value="Apartments">Apartments</option>
-                     <option value="Villa">Villa</option>
-                     <option value="Cottage">Cottage</option>
-                     <option value="House">House</option>
+                 <option value="P.G">P.G</option>
+                     <option value="Flat">Flat</option>
+                     <option value="Local House" selected>Local House</option>
                      
                     </select>
                     </div>
@@ -165,20 +88,19 @@ p{
     </section>
     <section class="search-content" >
     
-    <?php
-    
-       
-     include('../../php/connection.php'); 
-     $bhk= $_POST['bhk'];  
+    <?php  
+     include('../php/connection.php'); 
+     $rooms= $_POST['bhk'];  
      $city = $_POST['city'];
-     if($bhk==""){
-         $sql="SELECT status,city,bhk,acrooms FROM house where city='$city'";
+     $type=$_POST['type'];
+     if($rooms==""){
+         $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost FROM house where city='$city' and room_type='$type'";
      }
+     
      else{
-     $sql="SELECT status,city,bhk,acrooms FROM house where BHK='$bhk' and city='$city'";
+     $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost FROM house where rooms='$rooms' and city='$city' and room_type='$type'";
      }
      $result= mysqli_query($con,$sql);
-     
      if(mysqli_num_rows($result)){
         while($row=mysqli_fetch_assoc($result)){
             
@@ -186,24 +108,29 @@ p{
           
             echo "<tr>";
            echo "<td width='250px' rowspan='3' >";
-          echo "<img src='../../images/h5.jpg' alt='madan'>";
+          echo "<img src='../images/h5.jpg' alt='madan'>";
           echo "</td>";
           echo "<tr>";
               echo "<td style='color: rgb(86, 14, 219);'> ";
                
                  echo "<h3>Specification:</h3>";  
                  echo "<p>";
-                  echo $bhk ;
+                  echo $row['rooms'] ;
                   echo "</p>" ;  
-                echo "<p>Address: sant nagar near pushpanjali</p>";   
+                echo "<p>Address: ";
+               echo $row['address']; 
+                 echo "</p>";   
                  echo "<p>";
-                echo $city ;
+                echo $row['city'] ;
                 echo ", up</p> ";
                      
                     echo "<p>";
-                    echo " Ac rooms";
+                    echo " Ac rooms: ";
+                    echo $row['acrooms'];
+                    echo " , Room Type: ";
+                    echo $row['room_type'];
                     echo "</p>";
-                     echo "<h3>Available now</h3>";
+                     echo "<h3>".$row['status']."</h3>";
   
                 echo "</td>";
                
@@ -211,13 +138,16 @@ p{
 
             echo  "<tr>";
              echo "<td class='cn1' style='float: left; color: black; padding:5px 5px 5px 20px;margin-top:5px;'>";
-                echo  "contact no. 985632752";
+                echo  "Contact No: ";
+                echo $row['contact'];
                     echo "</td>";
                echo "<td  class='buy' style='float: right;'>";
-             echo "<a href='../../html pages/LogIn.html'>Buy</a>";
+             echo "<a href='LogIn.php'>Buy</a>";
            echo "</td>";
            echo "<td class='cn' style='float: right;'>";
-           echo  "Rent 4000/-"; 
+           echo  "Rent ";
+           echo $row['cost'];
+           echo "/-"; 
           echo "</td>";
          echo "</tr>";
          echo "</tr>";
@@ -227,7 +157,7 @@ p{
         }
      }
      else {
-         echo "No Result Found";
+        echo '<h2 style="text-align:center;color:green;margin-top:50px">No Result Found</h2>';
       
      }
      mysqli_close($con);

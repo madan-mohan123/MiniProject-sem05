@@ -5,5 +5,6 @@ session_start();
 $_SESSION["email"]="";
 $_SESSION["hpost"]="";
 $_SESSION["username"]="";
-include('../html pages/Login.php');
+// include('../html pages/Login.php');
+header("Location: ../html pages/Login.php");
 ?>
