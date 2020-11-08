@@ -1,13 +1,56 @@
+<?php
+session_start();
+$_SESSION["houseid"]="";
+?>
+
+<?php
+$host = "localhost";  
+$user = "root";  
+$password = '';  
+$db_name = "rental house management";   
+$con = mysqli_connect($host, $user, $password, $db_name);  
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnlineRentalSystem</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
     
     <link rel="stylesheet" href="../css files/Bhagatsearch.css" >
-    <link rel="stylesheet" media="screen and (max-width: 1300px)" href="../css/BhagatResponsive.css">
+    <style>
+       body{
+    background-color:orangered;
+}
+        .buy:hover{
+            background-color: rgb(241, 48, 14);
+    transform: scale(1.1);
+    box-shadow: 0 4px 6px 2px green;
+    color:white;
+    font-size:15px;
+}
 
+
+#buy{
+    display:inline-block;
+    width:120px;
+    height:45px;
+    border:none;
+    border-radius:25px;
+    font-size:20px;
+    background-color: rgb(168, 108, 218);
+    color: white;
+}
+.fa-tasks,.fa-home,.fa-tasks{
+        margin-right: 15px;
+       font-size: 20px;
+       
+    }
+    </style>  
 </head>
 <body>
   
@@ -16,11 +59,10 @@
             <p>House <span style="color: gray; opacity: 0.7;font-size:30px;">Management</span></p>
             <div class="nav">
                 <ul>
-                    <li><a href="../index.html">home</a></li>
-                    <li><a href="signup.html">signup</a></li>
-                    <li><a href="LogIn.php">login</a></li>
-                    <!-- <li ><a href="Bhagat mini-project/html/Bhagatsearch.php" style="background-color: teal;font-size: 20px; text-transform: none;padding: 10px 20px;">Search</a></li>
-                   -->
+                    <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>home</a></li>
+                    <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i>About us</a></li>
+                    <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i>Policy</a></li>
+                  
                 </ul>
             </div>
           
@@ -55,7 +97,10 @@
                  <select name="type" id="type">
                  <option value="P.G">P.G</option>
                      <option value="Flat">Flat</option>
-                     <option value="Local House" selected>Local House</option>
+                     <option value="Local House" >Local House</option>
+                     <option value="Girls P.G">Girls P.G</option>
+                     <option value="Boys P.G">Boys P.G</option>
+                     <option value="others" >others</option>
                      
                     </select>
                     </div>
@@ -82,33 +127,38 @@
         
         </div>
 
-
         </form>
+
          </div>   
     </section>
-    <section class="search-content" >
+    <section class="search-content">
     
     <?php  
-     include('../php/connection.php'); 
+    
      $rooms= $_POST['bhk'];  
      $city = $_POST['city'];
      $type=$_POST['type'];
-     if($rooms==""){
-         $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost FROM house where city='$city' and room_type='$type'";
+     $arhouseid=array();
+     $i=0;
+     if($rooms=="" && $type=="others"){
+         $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost,pic,house_id FROM house where city='$city'";
      }
-     
+     else if($rooms==""){
+        $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost,pic,house_id FROM house where city='$city' and room_type='$type'";
+    
+     } 
      else{
-     $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost FROM house where rooms='$rooms' and city='$city' and room_type='$type'";
+     $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost,pic,house_id FROM house where rooms='$rooms' and city='$city' and room_type='$type'";
      }
      $result= mysqli_query($con,$sql);
      if(mysqli_num_rows($result)){
         while($row=mysqli_fetch_assoc($result)){
+            $arhouseid[$i]=$row['house_id'];
             
-           echo "<table>";
-          
+           echo '<table class="my-tag">';
             echo "<tr>";
            echo "<td width='250px' rowspan='3' >";
-          echo "<img src='../images/h5.jpg' alt='madan'>";
+          echo "<img src='../images/".$row['pic']."' >";
           echo "</td>";
           echo "<tr>";
               echo "<td style='color: rgb(86, 14, 219);'> ";
@@ -117,8 +167,10 @@
                  echo "<p>";
                   echo $row['rooms'] ;
                   echo "</p>" ;  
+                  echo' <p>House-Id : ';
+                echo $arhouseid[$i];
                 echo "<p>Address: ";
-               echo $row['address']; 
+                echo $row['address']; 
                  echo "</p>";   
                  echo "<p>";
                 echo $row['city'] ;
@@ -141,8 +193,11 @@
                 echo  "Contact No: ";
                 echo $row['contact'];
                     echo "</td>";
-               echo "<td  class='buy' style='float: right;'>";
-             echo "<a href='LogIn.php'>Buy</a>";
+               echo '<td  class="buy" style="float: right;">';
+               echo '<form action="LogIn.php" method="POST">';
+            echo '<input style="display:none;" type="text" name="Buy" value="';echo $arhouseid[$i]; echo'">';
+             echo '<input type="submit" id="buy" value="Buy">';
+             echo '</form>';
            echo "</td>";
            echo "<td class='cn' style='float: right;'>";
            echo  "Rent ";
@@ -153,26 +208,19 @@
          echo "</tr>";
               
              echo "</table>" ;
+             $i++;
            
         }
      }
      else {
-        echo '<h2 style="text-align:center;color:green;margin-top:50px">No Result Found</h2>';
-      
+        echo '<h2 style="text-align:center;color:green;margin-top:50px">No Result Found</h2>'; 
      }
-     mysqli_close($con);
-    
-    
+ 
     ?>
     
-  
-        
- 
     </section>
 
     <section class="servicescontainer">
-   
-     
         <h1 class="h-primary center">our services </h1>
         <div id="services">
             <div class="box">
@@ -219,9 +267,9 @@
     <div class="content-box">
         <div class="about">
             <h2 class="h-secondary center">ABOUT US</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, harum delectus sequi eveniet eligendi animi culpa rem voluptatum accusantium inventore nam deleniti! Nobis.
-            </p>
+            <p>My name is bhagat singh and i am pursuing my B.Tech 3rd year from GLA Uniiversity.Currently I work rental house management project and this is the result of our project 
+            with my team members.This web is all for those people who need to find home homes in strane place.
+                  </p>
 
 
         </div>
@@ -256,6 +304,17 @@
         </div>
     </footer> 
 
+    <script>
+ var x = document.querySelector(".search-content");
+ x.onclick=hello;
+ function hello(e){ 
+       console.log(e.target);
+ }
+    </script>
+
+
+
+   
 
 </body>
 </html>

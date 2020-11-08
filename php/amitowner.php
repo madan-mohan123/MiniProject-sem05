@@ -17,12 +17,13 @@ session_start();
     $address = $_POST['address'];  
     $phone = $_POST['phone'];  
     $country_code = $_POST['country_code'];
+    $account=$_POST['account'];
     
       
     $sql1="SELECT email,password,hpost,username FROM account where  email='$email'";
     $result= mysqli_query($con,$sql1);
 
-         $sql = "INSERT INTO owner(FIRSTNAME,LASTNAME,EMAIL,GENDER,ADDRESS,PHONE,COUNTRY_CODE) VALUES ('$firstname','$lastname','$email','$gender','$address','$phone','$country_code')"; 
+         $sql = "INSERT INTO owner(FIRSTNAME,LASTNAME,EMAIL,GENDER,ADDRESS,PHONE,COUNTRY_CODE,account_no) VALUES ('$firstname','$lastname','$email','$gender','$address','$phone','$country_code','$account')"; 
          if($con->query($sql) === TRUE){
            
 

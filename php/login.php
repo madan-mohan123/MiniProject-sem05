@@ -27,18 +27,21 @@ if(mysqli_num_rows($result)){
    $_SESSION["email"]=$email;
 
 if($_SESSION[hpost]=="Owner"){
-  // include '../html pages/dashboardowner.php';
- 
   header("Location: ../html pages/dashboardowner.php");
 }
 else{
-     //include '../html pages/dashboardtenant.php'; 
+    if($_SESSION[houseid]!=""){
+        header("Location: ../html pages/transaction.php");
+    }
+    else{
      header("Location: ../html pages/dashboardtenant.php");
+    }
 }
 
  }
 else {
-    echo "<h2 style='text-align:center';padding-top:30px;> Check your email and password! </h2>";
+    echo "<script>alert('Check your email and password!')</script>";
+    header("Location: ../html pages/LogIn.php");
  
 }
 mysqli_close($con);

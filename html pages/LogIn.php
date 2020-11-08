@@ -3,20 +3,26 @@ session_start();
 ?>
 <?php
 
+if (isset($_POST['Buy'])) { 
+    $_SESSION["houseid"]=$_POST['Buy'];
+     }
+
 if($_SESSION[email]!=""){
     if($_SESSION[hpost]=="Owner"){
-     // require_once 'dashboardowner.php';
+    
       header("Location: ../html pages/dashboardowner.php");
    
      }
      else{
-       // require_once 'dashboardtenant.php'; 
+       
         header("Location: ../html pages/dashboardtenant.php");
      
      }
    
 }
 else{
+    
+    // echo '<h1 style="text-align:center;">';echo $_SESSION[houseid] ;echo '</h1>';
 echo '
 <!DOCTYPE html>
 <html lang="en">

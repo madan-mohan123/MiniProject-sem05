@@ -15,7 +15,6 @@ session_start();
     $purpose=$_POST['purpose'];  
     $address=$_POST['address']; 
     $contact=$_POST['contact']; 
-    $room=$_POST['room'];
     $join=$_POST['join'];
     $leave=$_POST['leave']; 
     $proof=$_POST['proofid'];  
@@ -23,7 +22,7 @@ session_start();
     $sql1="SELECT email,password,hpost,username FROM account where  email='$email'";
     $result= mysqli_query($con,$sql1);
 
-         $sql = "INSERT INTO tenant(USERNAME,EMAIL,MEMBERS,PURPOSE,ROOMS,CONTACT_NO,PROOF_ID,LEAVE_house,JOIN_house,ADDRESS) VALUES ('$name','$email','$member','$purpose','$room','$contact','$proof','$leave','$join','$address') "; 
+         $sql = "INSERT INTO tenant(USERNAME,EMAIL,MEMBERS,PURPOSE,CONTACT_NO,PROOF_ID,LEAVE_house,JOIN_house,ADDRESS) VALUES ('$name','$email','$member','$purpose','$contact','$proof','$leave','$join','$address') "; 
          if($con->query($sql) === TRUE){
             if(mysqli_num_rows($result)){
 
@@ -39,8 +38,13 @@ session_start();
                header("Location: ../html pages/dashboardowner.php");
             }
             else{
-               
+
+               if($_SESSION[houseid]!=""){
+                  header("Location: ../html pages/transaction.php");
+              }
+              else{
                header("Location: ../html pages/dashboardtenant.php");
+              }
             }
             
              }

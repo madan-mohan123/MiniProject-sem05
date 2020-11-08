@@ -5,6 +5,8 @@ session_start();
 $_SESSION["email"]="";
 $_SESSION["hpost"]="";
 $_SESSION["username"]="";
-// include('../html pages/Login.php');
+$_SESSION["house_id"]="";
+session_destroy();
 header("Location: ../html pages/Login.php");
+
 ?>

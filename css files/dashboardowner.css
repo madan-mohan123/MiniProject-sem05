@@ -140,7 +140,7 @@ color: white;
 }
 .tenant .card{
     border-radius: 20px;
-    width:20%;
+    width:23%;
     height: 350px;
     /* background-color: rgb(126, 125, 120); */
     background-image: linear-gradient(blue,red,green);
@@ -151,7 +151,7 @@ color: white;
 }
 .tenant .card img{
     width: 100%;
-    height: 170px;
+    height: 190px;
     border-radius: 20px;
     margin-bottom: 30px;
 }
@@ -206,7 +206,7 @@ color: white;
 }
 .profile button{
     display: block;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-left: 50px;
     margin-bottom: 30px;
     width: 100px;
@@ -346,16 +346,3 @@ content: '';
 clear: both;
 display: block;
 }
-#profile .pic{
-    text-align: center;
-    line-height: 30px;
-    width: 100px;
-    height: 30px; 
-    color: white; 
-    border-radius: 15px;
-    background-image:linear-gradient(blue,white);
-    font-size: 13px;
-}
-#profile .pic:hover{
-    box-shadow: 0 0 10px 2px green;
-    }

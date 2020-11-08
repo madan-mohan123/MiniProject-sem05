@@ -1,0 +1,25 @@
+
+
+
+#time{
+font-size: 2rem;
+
+}
+#time{
+    color: rgb(70, 69, 69);
+    display: block;
+   margin-right: 20px;
+    float: right;
+
+}
+#date{
+    clear: right;
+    color: rgb(44, 203, 231);
+    display: block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: right;
+    
+
+}
+

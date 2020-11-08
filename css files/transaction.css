@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    height: 100vh;
+    background-image: linear-gradient(orange,blue,teal);
+  
+}
+        main.accontainer{
+    width: 500px;
+    height: 600px;
+    margin: 70px auto;
+ position: absolute;
+ top:70px;
+ left:30%;
+ right: 30%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px teal;
+    padding: 5px;
+    /* display: none; */
+   
+}
+.accontainer #acount{
+    width: 90%;
+    height: 40px;
+    display: block;
+ 
+    margin:20px auto;
+    margin:20px 20px 0 20px;
+    margin-bottom: 0;
+    padding-left: 15px;
+}
+.accontainer #date,#ccv,#amount{
+    display:block;
+    height: 40px;
+    width: 90%;
+    margin:20px auto;
+    margin:20px 20px 0 20px;
+    padding-left: 15px;
+}
+.accontainer form button{
+    width: 90%;
+    height: 40px;
+    color: white;
+    border-radius: 20px;
+    background-color: rgb(146, 7, 211);
+    margin: 20px 20px 5px 20px;
+    border: none;
+    font-size: 20px;
+}
+.accontainer #credit,#debit,#net{
+    margin-right: 20px;
+}
+.accontainer  label{
+    display: block;
+    margin-left:20px;
+}
+.accontainer .image{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main.accontainer img{
+width: 50px;
+height: 50px;
+margin: 0px 10px 20px 20px;
+border-radius: 10px;
+}
+.accontainer input:focus{
+    outline: none;
+    box-shadow: 0 0 10px 2px orange;
+}
+.accontainer button:hover{
+    background-image: linear-gradient(pink,red) ;
+}
+.accontainer i{
+display: block;
+margin: 20px;
+margin-top: 10px;
+border: 1px solid rebeccapurple;
+float:right;
+}
