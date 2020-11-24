@@ -32,7 +32,7 @@ if($_SESSION[houseid]!="" && $_SESSION[email]!=""){
 </head>
 <body>
     <main class="accontainer" id="close">
-        <a href="#"><i class="cancel" onclick="close1()">cancel</i></a>
+       
         <h2 style="text-align: center;margin: 0 20px 20px 20px; clear: both;">Choose your Transaction</h2>
         <section class="image">
         <img src="../images/sbi.jpg" alt="">

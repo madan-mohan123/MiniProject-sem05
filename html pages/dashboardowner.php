@@ -110,6 +110,124 @@ echo '
        font-size: 20px;
        
     }
+
+
+    #editname{
+        position:absolute;
+        left:20%;
+        right:20%;
+        top:-500px;
+        transition:2s;
+        display:none;
+         width: 400px;
+         height: 400px;
+         background-color: rgb(49, 49, 49);
+         counter-reset: white;
+         margin: 100px auto;
+         
+     }
+     #editname label{
+         display: block;
+         margin: 20px 0 20px 20px;
+         width: 360px;
+         /* border: 2px solid green; */
+     font-size: 20px;
+     color: white;
+     font-family: sans-serif;
+     
+     
+     }
+     #editname input{
+         display: block;
+         height: 40px;
+         width: 360px;
+         margin: 20px 0 20px 20px;
+         font-size: 20px;
+     }
+     #editname img{
+         width: 100px;
+         height: 100px;
+         display: block;
+         margin: 10px auto;
+         border-radius:50%;
+     }
+     #editname input[type="submit"]{
+         background-color: orangered;
+         border:none;
+         transition: 0.7s;
+     }
+     #editname input[type="submit"]:hover{
+         transform: scale(0.9);
+     }
+     #editcontact{
+        position:absolute;
+        left:20%;
+        right:20%;
+        top:-500px;
+        transition:2s;
+        display:none;
+         width: 400px;
+         height: 400px;
+         background-color: rgb(49, 49, 49);
+         counter-reset: white;
+         margin: 100px auto;
+         
+     }
+     #editcontact label{
+         display: block;
+         margin: 20px 0 20px 20px;
+         width: 360px;
+         /* border: 2px solid green; */
+     font-size: 20px;
+     color: white;
+     font-family: sans-serif;
+     
+     
+     }
+     #editcontact input{
+         display: block;
+         height: 40px;
+         width: 360px;
+         margin: 20px 0 20px 20px;
+         font-size: 20px;
+     }
+     #editcontact img{
+         width: 100px;
+         height: 100px;
+         display: block;
+         margin: 10px auto;
+         border-radius:50%;
+     }
+     #editcontact input[type="submit"]{
+         background-color: orangered;
+         border:none;
+         transition: 0.7s;
+     }
+     #editcontact input[type="submit"]:hover{
+         transform: scale(0.9);
+     }
+.profile{
+    height:100%;
+}
+.complaint button{
+    display: block;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    width: 100px;
+    height: 30px; 
+    color: white; 
+    border-radius: 15px;
+    background-image:linear-gradient(blue,white);
+    border: none;
+    font-size: 13px;
+}
+.complaint button:hover{
+box-shadow: 0 0 10px 2px green;
+}
+
+
+   
     </style>
 </head>
 <body>
@@ -120,17 +238,17 @@ echo '
             <div class="nav">
                 <ul>
                     <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>home</a></li>
-                    <li><a href="../php/logout.php"><i class="fa fa-tasks" aria-hidden="true"></i>LogOut</a></li>
+                    <li><a href="../php/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</a></li>
                     <li>
                         <a href="#"><i class="fa fa-tasks" aria-hidden="true"></i>Services</a>
                         <div class="menu">
                         <ul>
                            
-                            <li><a href="#" onclick="dashboard()"><i class="fa fa-tachometer" aria-hidden="true"></i>Dash</a></li>
-                            <li><a href="#" onclick="tenant()"><i class="fa fa-user" aria-hidden="true"></i>Tenant</a></li>
+                            <li><a href="#" onclick="dashboard()"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+                            <li><a href="#" onclick="tenant()"><i class="fa fa-renren" aria-hidden="true"></i></i>Tenant</a></li>
                             <li><a href="#" onclick="profile()"><i class="fa fa-user" aria-hidden="true"></i>profile</a></li>
-                            <li><a href="owner.html">Apartment</a></li>
-                            <li><a href="#" onclick="complaint()"><i class="fa fa-building" aria-hidden="true"></i>Compla</a></li>
+                            <li><a href="owner.html"><i class="fa fa-building" aria-hidden="true"></i>Apartment</a></li>
+                            <li><a href="#" onclick="complaint()"><i class="fa fa-wrench" aria-hidden="true"></i>Complaint</a></li>
                             <!--<li><a href="#">Details</a></li>-->
                         </ul>
                     </div>
@@ -239,19 +357,24 @@ echo'
             </span>
             ';
 
-            $name=$fname."-".$lname;
+            $name=$fname." ".$lname;
+            
             echo '
-            <label for="name">Name</label>
-            <input type="text" value= '; echo $name;  echo'>
+            <label for="name"> <b>Name :  </b><h4 style="color:teal;display:inline-block;margin:0 0 0 15px;">';echo $name;echo ' </h4>
+            <span style="margin-left:100px;cursor:pointer;"> <a onclick="editname()"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </span>
+            </label>';
+          
 
-            <label for="email">Email</label>
-             <input type="text" readonly value='; echo $email; echo'>
+           echo ' <label for="name"> <b>Email :  </b><h4 style="color:teal;display:inline-block;margin:0 0 0 15px;">';echo $email;echo ' </h4></label>';
+           
+         
 
-            <label for="contact">Contact</label>
-            <input type="text" value='; echo $contact; echo'>
-
-            <label for="profession">Profession</label>
-            <input type="text" value='; echo "Owner"; echo'>
+           echo ' <label for="name"> <b>Contact :  </b><h4 style="color:teal;display:inline-block;margin:0 0 0 15px;">';echo $contact;echo ' </h4>
+           <span style="margin-left:85px;cursor:pointer;"> <a onclick="editcontact()"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </span>
+           </label>';
+           
+           echo ' <label for="name"> <b>Post :  </b><h4 style="color:teal;display:inline-block;margin:0 0 0 15px;">';echo "Owner";echo ' </h4></label>';
+           echo'
         </div>
   
 
@@ -266,7 +389,7 @@ echo'
                 <label for="">
                     Description </label>
                     <textarea name="descript" id="" cols="80" rows="10"></textarea>
-    
+                    <button> Send</button>
             </div>
 
 ';
@@ -346,7 +469,83 @@ echo '
                 }
  
     echo '
-    <script>
+    
+</div>
+
+
+<section id="editname">
+<a style="display:block;margin:10px 10px 10px 10px;cursor:pointer;" onclick="close1()"><i class="fa fa-times" aria-hidden="true" style="color:white;font-size:15px;"></i></a>
+<img src="../images/h4.jpg" alt="">
+<h2 style="text-align: center;color:orangered;">Welcome!</h2>
+
+<form action="dashboardowner.php" method="POST">
+
+<label for="">Name </label>
+
+<input type="text" name="myname" id="" required>
+
+<input type="submit" value="Enter" name="entern">
+</form>
+
+
+</section>
+
+<section id="editcontact">
+<a style="display:block;margin:10px 10px 10px 10px;cursor:pointer;" onclick="close2()"><i class="fa fa-times" aria-hidden="true" style="color:white;font-size:15px;"></i></a>
+<img src="../images/h4.jpg" alt="">
+<h2 style="text-align: center;color:orangered;">Welcome!</h2>
+
+<form action="dashboardowner.php" method="POST">
+
+<label for="">Contact </label>
+
+<input type="text" name="mycontactno" id="" required>
+
+<input type="submit" value="Enter" name="mycontact">
+</form>
+
+
+</section>
+';
+
+
+if(isset($_POST['entern'])){
+     
+
+    $host = "localhost";  
+    $user = "root";  
+  
+    $password = '';  
+    $db_name = "rental house management";  
+      
+    $con = mysqli_connect($host, $user, $password, $db_name); 
+     
+    $myname = $_POST['myname'];
+    $sql2 = "UPDATE account SET username='$myname' where email='$email'"; 
+    mysqli_query($con, $sql2);
+   
+}
+
+if(isset($_POST['mycontact'])){
+ 
+
+    $host = "localhost";  
+    $user = "root";  
+  
+    $password = '';  
+    $db_name = "rental house management";  
+      
+    $con = mysqli_connect($host, $user, $password, $db_name); 
+     
+    $mycontactno = $_POST['mycontactno'];
+    $sql2 = "UPDATE owner SET phone='$mycontactno' where email='$email'"; 
+    mysqli_query($con, $sql2);
+}
+
+echo '
+
+<script src="clock.js"></script>
+<script>
         function profile(){
             document.getElementById("dashboard").style.display="none";
             document.getElementById("complaint").style.display="none";
@@ -372,13 +571,44 @@ echo '
             document.getElementById("complaint").style.display="none";
             document.getElementById("dashboard").style.display="block";
         }
-        function photo1(){
+
+        function editname(){
+          
            
-        }
+           var x=document.getElementById("editname");
+           x.style.display="block";
+           x.style.top="200px";
+           x.style.position="fixed";
+          
+          }
+
+          function close1(){
+          
+           
+           document.getElementById("editname").style.top="-500px";
+           document.getElementById("editname").style.position="absolute";
+          
+          }
+
+          function editcontact(){
+      
+           
+           var y=document.getElementById("editcontact");
+           y.style.display="block";
+           y.style.position="fixed";
+           y.style.top="200px";
+          
+          }
+          function close2(){
+          
+          
+           document.getElementById("editcontact").style.top="-500px";
+           document.getElementById("editcontact").style.position="absolute";
+          }
+      
      
     </script>
-</div>
-<script src="clock.js"></script>
+
 </body>
 </html>
 ';

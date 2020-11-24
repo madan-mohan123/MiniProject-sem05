@@ -141,14 +141,14 @@ $con = mysqli_connect($host, $user, $password, $db_name);
      $arhouseid=array();
      $i=0;
      if($rooms=="" && $type=="others"){
-         $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost,pic,house_id FROM house where city='$city'";
+         $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost,pic,house_id FROM house where city='$city' and status='Available'";
      }
      else if($rooms==""){
-        $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost,pic,house_id FROM house where city='$city' and room_type='$type'";
+        $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost,pic,house_id FROM house where city='$city' and room_type='$type' and status='Available'";
     
      } 
      else{
-     $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost,pic,house_id FROM house where rooms='$rooms' and city='$city' and room_type='$type'";
+     $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost,pic,house_id FROM house where rooms='$rooms' and city='$city' and room_type='$type' and status='Available'";
      }
      $result= mysqli_query($con,$sql);
      if(mysqli_num_rows($result)){

@@ -71,7 +71,7 @@ color:rgb(7, 5, 12);
     position:absolute;
     right: 0;
     top:80px;
-    width: 170px;
+    width: 200px;
    display: none;
    background-image: linear-gradient(skyblue,pink);
 }
@@ -179,7 +179,7 @@ margin-bottom: 20px;
 display: block;
 
 
-margin-bottom: 10px;
+margin-bottom: 20px;
 margin-left: 50px;
 
 }
@@ -286,7 +286,7 @@ main.accontainer{
     height: 40px;
     width: 90%;
     margin:20px auto;
-    margin:20px 20px 0 20px;
+    margin:20px 20px 20px 20px;
 }
 .accontainer button{
     width: 90%;

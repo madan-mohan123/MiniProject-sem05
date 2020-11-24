@@ -17,11 +17,16 @@ body{
 }
 .nav{
     float: right;
+  /* position: initial; */
+    
 }
+
 .nav ul li{
     list-style: none;
     display: inline-block;
-    line-height: 80px;
+    line-height: 75px;
+  
+    
 }
 .nav ul li a{
     text-decoration: none;
@@ -48,6 +53,7 @@ color:rgb(226, 223, 233);
     box-shadow: 0 2px 10px 3px rgb(218, 10, 107);
     position: relative;
     top:0;
+    transition: 1s;
    
     
 }
@@ -72,10 +78,34 @@ color:rgb(226, 223, 233);
     font-size: 20px;
     color:rgb(209, 209, 200);
 }
-@media (max-width:950px){
-    .nav ul li a{
+
+@media (max-width:1100px){
+    .nav{
+            position: fixed;
+            top:0px;
+            right:-200px;
+            z-index: 8;
+            width: 200px;
+            height: 250px;
+            background-image: linear-gradient(rgb(100, 198, 228),rgb(126, 126, 223));
+            transition: 1s;
+        }
+    .nav ul li{
         display: none;
+       line-height: 50px;
+       
     }
+    .fa-bars{
+        display: block;
+        color: rgb(184, 168, 168);
+        font-size: 30px;
+        margin-top: 20px;
+    float: right;
+    margin-right: 30px;
+   
+    }
+  
+
 }
 @media (max-width:500px){
     .header p{

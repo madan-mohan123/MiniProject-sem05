@@ -190,6 +190,8 @@ echo '
 <div class="goog">
     <p>Log In With google</p>
 </div>
+
+<a href="../index.html" style="margin:10px 0 0 20px;text-decoration:none;color:red;">Back to home</a>
     </div>
 
      

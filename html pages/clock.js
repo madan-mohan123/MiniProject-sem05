@@ -31,7 +31,6 @@ date.innerHTML=`${todaydate}`;
 //call showtime funtion after 1s
 setTimeout(showtime,1000);
 
-
 function addZero(n){
 
     return((parseInt(n,10)<10 ? '0':'')+n);

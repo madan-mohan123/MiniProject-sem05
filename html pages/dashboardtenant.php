@@ -14,7 +14,7 @@ if($_SESSION[email]==""){
     header("Location: ../html pages/Login.php");
 }
 else{
-    $sql="SELECT username,house_id,members,contact_no,Proof_id FROM tenant where email='$_SESSION[email]'";
+    $sql="SELECT username,house_id,members,contact_no,proof_id FROM tenant where email='$_SESSION[email]'";
     $result= mysqli_query($con,$sql);
     $username="";
     $owneremail="";
@@ -83,6 +83,120 @@ echo'
        font-size: 20px;
        
     }
+
+    #editname{
+        position:absolute;
+        left:20%;
+        right:20%;
+        top:-500px;
+        transition:2s;
+        display:none;
+         width: 400px;
+         height: 400px;
+         background-color: rgb(49, 49, 49);
+         counter-reset: white;
+         margin: 100px auto;
+         
+     }
+     #editname label{
+         display: block;
+         margin: 20px 0 20px 20px;
+         width: 360px;
+         /* border: 2px solid green; */
+     font-size: 20px;
+     color: white;
+     font-family: sans-serif;
+     
+     
+     }
+     #editname input{
+         display: block;
+         height: 40px;
+         width: 360px;
+         margin: 20px 0 20px 20px;
+         font-size: 20px;
+     }
+     #editname img{
+         width: 100px;
+         height: 100px;
+         display: block;
+         margin: 10px auto;
+         border-radius:50%;
+     }
+     #editname input[type="submit"]{
+         background-color: orangered;
+         border:none;
+         transition: 0.7s;
+     }
+     #editname input[type="submit"]:hover{
+         transform: scale(0.9);
+     }
+     #editcontact{
+        position:absolute;
+        left:20%;
+        right:20%;
+        top:-500px;
+        transition:2s;
+        display:none;
+         width: 400px;
+         height: 400px;
+         background-color: rgb(49, 49, 49);
+         counter-reset: white;
+         margin: 100px auto;
+         
+     }
+     #editcontact label{
+         display: block;
+         margin: 20px 0 20px 20px;
+         width: 360px;
+         /* border: 2px solid green; */
+     font-size: 20px;
+     color: white;
+     font-family: sans-serif;
+     
+     
+     }
+     #editcontact input{
+         display: block;
+         height: 40px;
+         width: 360px;
+         margin: 20px 0 20px 20px;
+         font-size: 20px;
+     }
+     #editcontact img{
+         width: 100px;
+         height: 100px;
+         display: block;
+         margin: 10px auto;
+         border-radius:50%;
+     }
+     #editcontact input[type="submit"]{
+         background-color: orangered;
+         border:none;
+         transition: 0.7s;
+     }
+     #editcontact input[type="submit"]:hover{
+         transform: scale(0.9);
+     }
+.profile{
+    height:100%;
+}
+.complaint button{
+    display: block;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    width: 100px;
+    height: 30px; 
+    color: white; 
+    border-radius: 15px;
+    background-image:linear-gradient(blue,white);
+    border: none;
+    font-size: 13px;
+}
+.complaint button:hover{
+box-shadow: 0 0 10px 2px green;
+}
     </style>
 
 </head>
@@ -94,17 +208,17 @@ echo'
             <div class="nav">
                 <ul>
                     <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>home</a></li>
-                    <li><a href="../php/logout.php"><i class="fa fa-tasks" aria-hidden="true"></i>LogOut</a></li>
+                    <li><a href="../php/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</a></li>
                     <li>
                         <a href="#"><i class="fa fa-tasks" aria-hidden="true"></i>Services</a>
                         <div class="menu">
                         <ul>
                         <li><a href="#" onclick="transaction()"><i class="fa fa-credit-card" aria-hidden="true"></i>Payment</a></li>
-                            <li><a href="#" onclick="dashboard()"><i class="fa fa-tachometer" aria-hidden="true"></i>Dash</a></li>
+                            <li><a href="#" onclick="dashboard()"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
                             
                             <li><a href="#" onclick="profile()"><i class="fa fa-user" aria-hidden="true"></i>profile</a></li>
                            
-                            <li><a href="#" onclick="complaint()"><i class="fa fa-building" aria-hidden="true"></i>Compl</a></li>
+                            <li><a href="#" onclick="complaint()"><i class="fa fa-building" aria-hidden="true"></i>Complaint</a></li>
                           
                         </ul>
                     </div>
@@ -220,25 +334,34 @@ echo '
             </form>
             </span>';
 
-           echo'
-            <label for="name">Name</label>
-<input type="text" value='; echo $username;echo'>
+            echo '
+            <label for="name"> <b>Name :  </b><h4 style="color:teal;display:inline-block;margin:0 0 0 15px;">';echo $username;echo ' </h4>
+            <span style="margin-left:100px;cursor:pointer;"> <a onclick="editname()">  <i class="fa fa-pencil" aria-hidden="true"></i></a> </span>
 
-<label for="email">Email</label>
- <input type="text" readonly value='; echo $email; echo'>
+            </label>';
+          
+            echo '
+            <label for="name"> <b>EMAIL :  </b><h4 style="color:teal;display:inline-block;margin:0 0 0 15px;">';echo $email;echo ' </h4></label>';
+          
 
-<label for="contact">Contact</label>
-<input type="text" value='; echo $contact; echo'>
+            echo '
+            <label for="name"> <b>CONTACT :  </b><h4 style="color:teal;display:inline-block;margin:0 0 0 15px;">';echo $contact;echo ' </h4>
+            <span style="margin-left:85px;cursor:pointer;"> <a onclick="editcontact()">  <i class="fa fa-pencil" aria-hidden="true"></i></a> </span></label>';
+          
 
-<label for="">Members</label>
-<input type="text" readonly value='; echo $members; echo'>
+            echo '
+            <label for="name"> <b>MEMBERS :  </b><h4 style="color:teal;display:inline-block;margin:0 0 0 15px;">';echo $members;echo ' </h4>
+          </label>';
+          
 
-<label for="">ProofID</label>
-<input type="text" readonly value='; echo $proof;echo'>
+            echo '
+            <label for="name"> <b>PROOF ID :  </b><h4 style="color:teal;display:inline-block;margin:0 0 0 15px;">';echo $proof;echo ' </h4></label>';
+          
 
-<label for="">Owner Email</label>
-<input type="text" readonly value='; echo $owneremail; echo'>
-';
+            echo '
+            <label for="name"> <b>Owner Email :  </b><h4 style="color:teal;display:inline-block;margin:0 0 0 15px;">';echo $owneremail;echo ' </h4></label>';
+          
+
 
 echo'
        
@@ -259,14 +382,14 @@ echo'
                 <label for="">
                     Description  </label>
                     <textarea name="descript" id="" cols="80" rows="10"></textarea>
-                    
+                    <button> Send</button>
             </div>
             
 </div>
 </div>
 
-<main class="accontainer" id="close">
-    <a href="#"><i class="cancel" onclick="close1()">cancel</i></a>
+<main class="accontainer" id="closeac">
+    <a href="#" onclick="closeaccount()" class="cancel"><i class="fa fa-times" aria-hidden="true" style="color:gray;font-size:15px;"></i></a>
     <h2 style="text-align: center;margin: 0 20px 20px 20px; clear: both;">Choose your Transaction</h2>
     <section class="image">
     <img src="../images/sbi.jpg" alt="">
@@ -289,7 +412,7 @@ echo'
                </label>
     
     <input type="number" name="" id="acount" placeholder="Account number">
-    <input type="datetime" name="" id="date" placeholder="Expiray date">
+    <input type="datetime" name="" id="date" placeholder="Expiray date" style="margin-bottom:20px;">
     <input type="number" name="" id="ccv" placeholder="ccv">
     <button>
         next
@@ -297,7 +420,88 @@ echo'
     </form>
        </main>
 
-        <script>
+
+       <section id="editname">
+       <a style="display:block;margin:10px 10px 10px 10px;cursor:pointer;" onclick="close1()"><i class="fa fa-times" aria-hidden="true" style="color:white;font-size:15px;"></i></a>
+         
+<img src="../images/h4.jpg" alt="">
+<h2 style="text-align: center;color:orangered;">Welcome!</h2>
+
+<form action="dashboardtenant.php" method="POST">
+
+<label for="">Name </label>
+
+<input type="text" name="myname" id="" required>
+
+<input type="submit" value="Enter" name="upload">
+</form>
+
+
+       </section>
+
+
+
+       
+      ';
+
+      echo '
+      <section id="editcontact">
+      <a style="display:block;margin:10px 10px 10px 10px;cursor:pointer;" onclick="close2()"><i class="fa fa-times" aria-hidden="true" style="color:white;font-size:15px;"></i></a>
+
+<img src="../images/h4.jpg" alt="">
+<h2 style="text-align: center;color:orangered;">Welcome!</h2>
+
+<form action="dashboardtenant.php" method="POST">
+
+<label for="">Contact </label>
+
+<input type="text" name="mycontactno" id="" required>
+
+<input type="submit" value="Enter" name="mycontact">
+</form>
+
+
+   </section>
+      
+      ';
+
+
+
+    if(isset($_POST['upload'])){
+     
+
+        $host = "localhost";  
+        $user = "root";  
+      
+        $password = '';  
+        $db_name = "rental house management";  
+          
+        $con = mysqli_connect($host, $user, $password, $db_name); 
+         
+        $myname = $_POST['myname'];
+        $sql2 = "UPDATE account SET username='$myname' where email='$email'"; 
+        mysqli_query($con, $sql2);
+        $sql23 = "UPDATE tenant SET username='$myname' where email='$email'"; 
+        mysqli_query($con, $sql23);
+    }
+
+    if(isset($_POST['mycontact'])){
+     
+
+        $host = "localhost";  
+        $user = "root";  
+      
+        $password = '';  
+        $db_name = "rental house management";  
+          
+        $con = mysqli_connect($host, $user, $password, $db_name); 
+         
+        $mycontactno = $_POST['mycontactno'];
+        $sql2 = "UPDATE tenant SET contact_no='$mycontactno' where email='$email'"; 
+        mysqli_query($con, $sql2);
+    }
+    
+        echo '<script>
             function profile(){
                 document.getElementById("dashboard").style.display="none";
                 document.getElementById("complaint").style.display="none";
@@ -325,10 +529,44 @@ echo'
             function transaction(){
           
                 document.getElementById("blur").style.opacity="0.3";
-               document.getElementById("close").style.display="block";
-               document.getElementById("close").style.opacity="1";
+               document.getElementById("closeac").style.display="block";
+               document.getElementById("closeac").style.opacity="1";
               
               }
+              function editname(){
+          
+                document.getElementById("blur").style.opacity="0.3";
+               var x=document.getElementById("editname");
+               x.style.display="block";
+               x.style.top="200px";
+              
+              }
+              function close1(){
+              
+               document.getElementById("blur").style.opacity="1";
+               document.getElementById("editname").style.top="-500px";
+              
+              }
+              function editcontact(){
+          
+                document.getElementById("blur").style.opacity="0.3";
+               var y=document.getElementById("editcontact");
+               y.style.display="block";
+               y.style.top="200px";
+              
+              }
+              function close2(){
+              
+               document.getElementById("blur").style.opacity="1";
+               document.getElementById("editcontact").style.top="-500px";
+              
+              }
+              function closeaccount(){
+              
+                document.getElementById("blur").style.opacity="1";
+                document.getElementById("closeac").style.display="none";
+               
+               }
         </script>
         <script src="clock.js"></script>
 </body>

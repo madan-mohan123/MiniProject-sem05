@@ -19,6 +19,52 @@
         margin-right: 10px;
        font-size: 20px;  
     }
+    .fa-bars{
+display: none;
+margin-right: 10px;
+       font-size: 20px;  
+       color: gray;
+    }
+    .fa-times{
+        display: none;
+        
+        list-style: none;
+        margin-right: 10px;
+       font-size: 25px;  
+       color: gray;
+       float: right;  
+       margin-top: 10px;
+    }
+    @media (max-width:1100px){
+    .nav{
+            position: fixed;
+            top:0px;
+            right:-200px;
+            z-index: 8;
+            width: 200px;
+            height: 250px;
+            background-image: linear-gradient(rgb(100, 198, 228),rgb(126, 126, 223));
+            transition: 1s;
+        }
+    .nav ul li{
+        display: none;
+       line-height: 50px;
+       
+    }
+    .fa-bars{
+        display: block;
+        color: rgb(184, 168, 168);
+        font-size: 30px;
+        margin-top: 20px;
+    float: right;
+    margin-right: 30px;
+   
+    }
+  
+
+}
+
+    
     </style>
 </head>
 <body>
@@ -26,14 +72,18 @@
         <div class="header">
             <img src="images/h.jpg"  alt="">
             <p>House <span style="color: gray; opacity: 0.7;font-size:30px;">Management</span></p>
+            <i class="fa fa-bars" aria-hidden="true" onclick="sidebar()"></i>
             <div class="nav">
+                <i class="fa fa-times" aria-hidden="true" onclick="closesidebar()"></i>
                 <ul>
+                    
                     <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i>home</a></li>
                     <li><a href="html pages/signup.html"><i class="fa fa-tasks" aria-hidden="true"></i>signup</a></li>
                     <li><a href="html pages/LogIn.php"><i class="fa fa-tasks" aria-hidden="true"></i>login</a></li>
-                    <li ><a href="html pages/Bhagatsearch.php" style="background-color: teal;font-size: 20px; text-transform: none;padding: 10px 20px;"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
-                  
+                    <li><a href="html pages/Bhagatsearch.php" style="background-color: teal;font-size: 20px; text-transform: none;padding: 10px 20px;"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
+                    <!-- <li><i class="fa fa-times" aria-hidden="true"></i></li> -->
                 </ul>
+               
             </div>
           
         </div>
@@ -99,33 +149,33 @@
         <div class="colloboraters">
             <h1 style="text-align: center;color: blue;">Our Colloboraters</h1>
             <div class="colbo1">
-                <img src="images/avatar1.png" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
-                     deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
+                <img src="images/mohan.jpg" alt="">
+                <p>Hello guys, I am B. Tech 3rd year student in GLA University and I am currently working on this project that is build with the help 
+                    of php at server side.I hope You like this website for your needs.(Mohan agrawal)
                 </p>
             </div>
             <div class="colbo2">
-                <img src="images/avatar2.png" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
-                     deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
+                <img src="images/bhagat.jpg" alt="">
+                <p>Hello guys, I am B. Tech 3rd year student in GLA Universityand I am currently working on this project that is build with the help 
+                    of php at server side.I hope You like this website for your needs.(Bhagat Singh)
                 </p>
             </div>
             <div class="colbo1">
-                <img src="images/avatar3.png" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
-                     deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
+                <img src="images/udit.jpg" alt="">
+                <p>Hello guys, I am B. Tech 3rd year student in GLA Universityand I am currently working on this project that is build with the help 
+                    of php at server side.I hope You like this website for your needs.(Udit agrawal)
                 </p>
             </div>
             <div class="colbo2">
-                <img src="images/avatar4.jpg" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
-                     deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
+                <img src="images/amit.jpg" alt="">
+                <p>Hello guys, I am B. Tech 3rd year student in GLA University and I am currently working on this project that is build with the help 
+                    of php at server side.I hope You like this website for your needs.(Amit Kumar)
                 </p>
             </div>
             <div class="colbo1">
-                <img src="images/avatar5.png" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum similique non ex officia
-                     deleniti? Architecto recusandae voluptatem magni officia quia nobis sit, odio neque doloremque?
+                <img src="images/IMG_20201011_200158.jpg" alt="">
+                <p>Hello guys, I am B. Tech 3rd year student in GLA University and I am currently working on this project that is build with the help 
+                    of php at server side.I hope You like this website for your needs.(Madan Mohan)
                 </p>
             </div>
 
@@ -176,5 +226,53 @@
                
         </div>
     </div>
+    <script>
+        function sidebar(){
+            var x=document.querySelectorAll(".header .nav ul li");
+            var y=document.querySelector(".header .nav");
+            y.style.display="block";
+            y.style.right="0px";
+            x[0].style.display="block";
+            x[1].style.display="block";
+            x[2].style.display="block";
+            x[3].style.display="block";
+            document.querySelector(".header .fa-times").style.display="block";
+            
+            
+        }
+        function closesidebar(){
+          
+            var y=document.querySelector(".header .nav");
+          
+            y.style.display="block";
+            y.style.right="-200px";
+        
+            document.querySelector(".header .fa-times").style.display="none"; 
+            
+        }
+        function my(x){
+            if(x.matches){
+            var x=document.querySelectorAll(".header .nav ul li");
+            var y=document.querySelector(".header .nav");
+          
+            y.style.display="block";
+            y.style.right="-200px";
+        
+            x[0].style.display="inline-block";
+            x[1].style.display="inline-block";
+            x[2].style.display="inline-block";
+            x[3].style.display="inline-block";
+            document.querySelector(".header .fa-times").style.display="none"; 
+           
+
+        }
+       
+        }
+
+        var mc=window.matchMedia("(min-width:1100px)");
+my(mc);
+mc.addListener(my);
+        
+    </script>
 </body>
 </html>
