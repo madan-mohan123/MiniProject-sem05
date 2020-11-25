@@ -20,10 +20,10 @@
 // SELECT DATEDIFF('2020-10-30','2020-10-01') AS 'RE'; 
 
 $dat=date("Y-m-d");
-$sql11 = "INSERT INTO datee(datt1,datt2) VALUES ('2020-02-13','$dat')"; 
+// $sql11 = "INSERT INTO datee(datt1,datt2) VALUES ('2020-02-13','$dat')"; 
 // $sql11="SELECT datt1,datt2 from datee";
 // mysqli_query($con,$sq);
- $result2= mysqli_query($con,$sql11);
+//  $result2= mysqli_query($con,$sql11);
 // $ab="";
 // $bc="";
 //   if(mysqli_num_rows($result2)){
@@ -48,5 +48,6 @@ $sql11 = "INSERT INTO datee(datt1,datt2) VALUES ('2020-02-13','$dat')";
 // $c=date_diff($b,$a);
 // echo '<h1>';echo $c->format("%R%a days");echo' helhklk </h1>'; 
 //       echo '<h1>';echo $dat;echo' helfdlo </h1>'; 
+echo '<h1>';echo $dat;echo' helfdlo </h1>'; 
       mysqli_close($con);
 ?> 

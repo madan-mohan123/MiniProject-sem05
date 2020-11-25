@@ -181,6 +181,11 @@ echo'
 .profile{
     height:100%;
 }
+#complaint{
+border-left:10px solid orange;
+min-height:100%;
+height:auto;
+}
 .complaint button{
     display: block;
     margin-top: 30px;
@@ -196,6 +201,19 @@ echo'
 }
 .complaint button:hover{
 box-shadow: 0 0 10px 2px green;
+}
+.notification{
+
+}
+.notification ul{
+    list-style:none;
+    margin-left:20px;
+  
+    margin-bottom:20px;
+    border-bottom:2px solid gray;
+}
+.notification ul li p{
+   margin-bottom:5px;
 }
     </style>
 
@@ -218,7 +236,7 @@ box-shadow: 0 0 10px 2px green;
                             
                             <li><a href="#" onclick="profile()"><i class="fa fa-user" aria-hidden="true"></i>profile</a></li>
                            
-                            <li><a href="#" onclick="complaint()"><i class="fa fa-building" aria-hidden="true"></i>Complaint</a></li>
+                            <li><a href="#" onclick="complaint()"><i class="fa fa-building" aria-hidden="true"></i>Messages</a></li>
                           
                         </ul>
                     </div>
@@ -279,8 +297,19 @@ box-shadow: 0 0 10px 2px green;
        <section class="section-1">Payment 
         <p style="color: orange;margin: 20px; font-size: 30px;">No Due</p>
        </section>
-       <section class="section-1">Complaint
-           <p style="color: orange;margin: 20px; font-size: 30px;">1</p>
+       <section class="section-1">Messages
+           <p style="color: orange;margin: 20px; font-size: 30px;">';
+$countcomplaint=0;
+           $sql1 = "SELECT * FROM notifications where toid='$email'";
+           $result1= mysqli_query($con,$sql1);
+           if(mysqli_num_rows($result1)){
+           while($row=mysqli_fetch_assoc($result1)){
+            $countcomplaint++;
+           }
+        }
+
+        echo $countcomplaint;
+           echo'</p>
        </section>
        <section class="section-1">Time ';
        //code for finding duration of tenant
@@ -373,16 +402,60 @@ echo'
             <h1 style="text-align: center;font-size: 30px;margin:20px 0 50px 0;color:blue;">Complaints!</h1>
            
                 <!-- <h1 style="text-align: center;font-size: 30px;margin-bottom: 50px;">Give your Complaint here</h1> -->
-                <label for=""> 
-                     To  </label><input type="text" placeholder="Email">
-                     <label for=""> 
-                     From  </label><input type="text" placeholder="Email">
-            
-   
-                <label for="">
-                    Description  </label>
-                    <textarea name="descript" id="" cols="80" rows="10"></textarea>
-                    <button> Send</button>
+                <form action="../php/message.php" method="POST">
+                <label for="">To</label>
+                <input type="text" placeholder="Email" name="tomailid" required>
+                <input type="text" name="frommailid" style="display:none;" value="';echo $email;echo '">
+               <label for="">
+               Description </label>
+               <textarea cols="80" rows="10" name="message" required></textarea>
+             <button type="submit"> Send</button>
+                    </form>
+                    <div class="notification">
+                    <h2 style="text-align:center;padding-bottom:30px;">Notifications</h2>
+                    ';
+
+                    $sql = "SELECT toid,message,date,fromid FROM notifications where toid='$email'";
+                    $result= mysqli_query($con,$sql);
+                    if(mysqli_num_rows($result)){
+                        echo '<h3 style="margin:0 20px 15px 20px;color:green;"><u>';echo "Received";echo'</u></h3>';
+                    
+                    while($row=mysqli_fetch_assoc($result)){
+                        echo '
+                    <ul>
+                    <li>
+                    <p><b>From: </b><span style="color:blue;"> ';echo $row['fromid'];echo'</span></p>
+                    
+                    <p><b>Date: </b><span style="color:green;">';echo $row['date'];echo'</p>
+                    <p><b>Message: </b>';echo $row['message'];echo'</p>
+                    </li>
+                    </ul>';
+                    
+                    }
+                    }
+
+                    $sql1 = "SELECT toid,message,date,fromid FROM notifications where fromid='$email'";
+                    $result1= mysqli_query($con,$sql1);
+                    if(mysqli_num_rows($result1)){
+                        echo '<h3 style="margin:0 20px 15px 20px;color:green;"><u>';echo "Sent";echo'</u></h3>'; 
+                    
+                    while($row=mysqli_fetch_assoc($result1)){
+                        echo '
+                    <ul>
+                    <li>
+                    <p><b>To: </b><span style="color:blue;"> ';echo $row['toid'];echo'</span></p>
+                    
+                    <p><b>Date: </b><span style="color:green;">';echo $row['date'];echo'</p>
+                    <p><b>Message: </b>';echo $row['message'];echo'</p>
+                    </li>
+                    </ul>';
+                    
+                    }
+                    }
+
+
+                        echo '
+                                        </div>
             </div>
             
 </div>
