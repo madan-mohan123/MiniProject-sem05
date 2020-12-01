@@ -163,6 +163,25 @@ p{
     color: white;
     opacity: 0.7;
 }
+.contain{
+    margin: 0 auto;
+    width: 500px;
+    /* height: 600px; */
+    margin-top: 90px;
+  
+    background-color:rgba(12, 11, 11,0.4);
+    border-radius: 30px 0 30px 0;
+}
+img{
+    position: relative;
+    top:-50px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
    </style>
    '; 
 
@@ -170,7 +189,7 @@ echo '
 </head>
 <body>
     <div class="contain">
-        <img src="../images/avatar2.png" alt="">
+        <img src="../images/log1.png" alt="">
 
         <form action="../php/login.php" method="POST" >
     <label for="email">Email
