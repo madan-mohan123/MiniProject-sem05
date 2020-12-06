@@ -5,9 +5,10 @@ body{
   .container {  
       padding: 50px;  
     background-color: lightblue;  
-  }  
+  } 
+
     
-  input[type=text], input[type=password], textarea {  
+  input[type=text], input[type=password], textarea,input[type=email] {  
     width: 100%;  
     padding: 15px;  
     margin: 5px 0 22px 0;  
