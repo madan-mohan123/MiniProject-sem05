@@ -95,13 +95,13 @@ $con = mysqli_connect($host, $user, $password, $db_name);
                 <div class="loc">
                  <label for="type">Type:</label>
                  <select name="type" id="type">
-                 <option value="P.G">P.G</option>
+                     <option value="" >---none---</option>
+                     <option value="P.G">P.G</option>
                      <option value="Flat">Flat</option>
                      <option value="Local House" >Local House</option>
                      <option value="Girls P.G">Girls P.G</option>
                      <option value="Boys P.G">Boys P.G</option>
-                     <option value="others" >others</option>
-                     
+                   
                     </select>
                     </div>
 </div>
@@ -111,11 +111,11 @@ $con = mysqli_connect($host, $user, $password, $db_name);
                     <div class="loc">
                     
                     <label for="Bed-rooms">Bed-Rooms:</label>
-                    <input type="text" name="bhk" id="Bed-rooms" placeholder="like 3bhk">
+                    <input type="text" name="bhk" id="Bed-rooms" placeholder="Rooms ie.2bhk">
 </div>
 <div class="loc">
                  <label for="city">City:</label>
-                 <input type="text" name="city" id="city"  placeholder="mathura" required>
+                 <input type="text" name="city" id="city"  placeholder="Enter city" required>
                 </div>
 </div>
             
@@ -140,7 +140,7 @@ $con = mysqli_connect($host, $user, $password, $db_name);
      $type=$_POST['type'];
      $arhouseid=array();
      $i=0;
-     if($rooms=="" && $type=="others"){
+     if($rooms=="" && $type==""){
          $sql="SELECT status,city,rooms,acrooms,address,contact,room_type,cost,pic,house_id FROM house where city='$city' and status='Available'";
      }
      else if($rooms==""){

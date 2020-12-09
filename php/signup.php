@@ -18,7 +18,17 @@
     if(mysqli_num_rows($resultl)){
         while($row=mysqli_fetch_assoc($resultl)){
          $check=1;
-         header("Location: ../html pages/signup.html");
+
+         $alertnotify=0;
+         if($alertnotify==0){
+     
+             echo "<script>prompt('This account is already has exist')</script>";
+             $alertnotify=1;
+            }
+        if($alertnotify==1){
+                header("Location: ../html pages/signup.html");
+            }
+        //  header("Location: ../html pages/signup.html");
         
     }
 }

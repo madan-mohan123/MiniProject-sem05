@@ -506,7 +506,7 @@ echo'
 
 <input type="text" name="myname" id="" required>
 
-<input type="submit" value="Enter" name="upload">
+<input type="submit" value="Enter" name="editname">
 </form>
 
 
@@ -540,7 +540,7 @@ echo'
 
 
 
-    if(isset($_POST['upload'])){
+    if(isset($_POST['editname'])){
      
 
         $host = "localhost";  

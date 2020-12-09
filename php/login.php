@@ -40,8 +40,19 @@ else{
 
  }
 else {
-    echo "<script>alert('Check your email and password!')</script>";
-    header("Location: ../html pages/LogIn.php");
+
+
+    $alertnotify=0;
+    if($alertnotify==0){
+
+        echo "<script>alert('Check your email and password!')</script>";
+        $alertnotify=1;
+       }
+       if($alertnotify==1){
+        header("Location: ../html pages/LogIn.php");
+       }
+    // echo "<script>alert('Check your email and password!')</script>";
+    // header("Location: ../html pages/LogIn.php");
  
 }
 mysqli_close($con);

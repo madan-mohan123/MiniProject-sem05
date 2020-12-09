@@ -67,9 +67,9 @@ color:rgb(226, 223, 233);
 form{
     width: 60%;
    border-radius: 20px;
-    /* border: 2px solid orange; */
+  padding-top: 20px;
     margin: auto;
-    /* background-image: linear-gradient(rgb(90, 236, 236),rgb(209, 137, 42)); */
+  
     background-color: rgba(177, 146, 172,0.8);
 }
 label{
@@ -84,7 +84,7 @@ label{
 input{
     width: 90%;
     height: 30px;
-    margin: 0px 0 20px 40px;
+    margin: 0px 0 20px 20px;
 }
 
 input:focus{

@@ -8,6 +8,7 @@ include('connection.php');
      $account = $_POST['cardno'];  
      $amount=$_POST['amount'];
 
+
      $dat=date("Y-m-d");
        $owneraccount="";
 $owneremail="";
@@ -26,9 +27,6 @@ $owneremail="";
 
     $sql2="SELECT account_no FROM owner where email='$owneremail'";
       $result2= mysqli_query($con,$sql2);
-
-
-   
    if(mysqli_num_rows($result2)){
 
     while($row=mysqli_fetch_assoc($result2)){
@@ -36,8 +34,6 @@ $owneremail="";
      $owneraccount=$row['account_no'];
        
     }
-
-
           $sql11 = "INSERT INTO bankaccount(Tenant_account,payment,date,Owner_account,house_id) VALUES ('$account','$amount','$dat','$owneraccount','$_SESSION[houseid]')"; 
           $sql22 = "UPDATE tenant SET house_id='$_SESSION[houseid]' where email='$_SESSION[email]'"; 
           mysqli_query($con, $sql22); 
@@ -48,8 +44,23 @@ $owneremail="";
             mysqli_query($con, $sqlsta); 
             
                $_SESSION[houseid]="";
+
+               
+
+               //messages 
+               $alertnotify=0;
+               $message="Welcome , I Am Your Tenant Now.";
+               $sql1 = "INSERT INTO notifications(fromid,toid,message,date) VALUES ('$_SESSION[email]','$owneremail','$message','$dat')"; 
+               if($con->query($sql1) === TRUE){
+                  }
+               if($alertnotify==0){
+
                echo '<script>alert("Transaction successfully Completed")</script>';
+               $alertnotify=1;
+              }
+              if($alertnotify==1){
               header("Location: ../html pages/dashboardtenant.php");
+              }
               }
  
  }
