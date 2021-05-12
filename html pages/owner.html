@@ -76,9 +76,9 @@
            </select>
 
 
-   <label for="City">City<input type="text" name="city" pattern="[A-Z][a-z]+" title="first charcter capital" required></label>
+   <label for="City">City ( * Capital )<input type="text" name="city" pattern="([A-Z]){2,}" title=" capital Characters" required></label>
    <label for="Adress">Address<input type="text" name="address" ></label>
-   <label for="Contact">Contact<input type="text" name="contact" pattern="[9687][0-9]{9}" title="number can only have 10 digits" required></label>
+   <label for="Contact">Contact<input type="text" name="contact" pattern="[9687]([0-9]){9}" title="number can only have 10 digits" required></label>
    <label for="cost">Cost<input type="text" name="cost" required></label>
    
    <input type="file" name="pic" required>

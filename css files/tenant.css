@@ -80,11 +80,14 @@ label{
     color: white;
     font-family: sans-serif;
     /* border: 2px solid black; */
+    /* border: 2px solid red; */
 }
 input{
     width: 90%;
-    height: 30px;
-    margin: 0px 0 20px 20px;
+    height: 40px;
+    margin: 0px 0 20px 40px;
+    /* border: 2px solid red; */
+    border-radius: 5px;
 }
 
 input:focus{

@@ -54,9 +54,9 @@ if($_SESSION[houseid]!="" && $_SESSION[email]!=""){
                   Net Banking
                    </label>
         
-        <input type="text" name="cardno" id="acount" placeholder="card number" required>
-        <input type="datetime" name="expdate" id="date" placeholder="Expiray date" required>
-        <input type="text" name="ccv" id="ccv" placeholder="ccv" required>
+        <input type="text" name="cardno" id="acount" placeholder="xxxx xxxx xxxx" required>
+        <input type="datetime" name="expdate" id="date" placeholder="MM/YYYY" required>
+        <input type="text" name="ccv" id="ccv" placeholder="CCV" required>
 
          <label for="" style="margin: 20px 0 10px 20px;"> Payable Amount</label>';
 

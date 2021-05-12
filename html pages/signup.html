@@ -17,10 +17,10 @@
         <input type="text" name="name">
     </label>
     <label for="email">Email
-        <input type="text" name="email" pattern="([a-zA-Z0-9]+@gmail.com)|([a-zA-Z0-9]+@yahoo.com)" title="Format should be '@gmail.com' OR '@yahoo.com'">
+        <input type="text" name="email" pattern="([a-zA-Z0-9._]){1,}[@]([a-z]){2,}[.]([a-z]){2,}([.a-z]{0,})" title="Enter valid ID">
     </label>
         <label for="password">Password
-        <input type="password" name="password" pattern="[a-zA-Z0-9]+[@_.#-]+[a-zA-Z0-9]+" title="Password should contain special character like @-_#. in between alphanumeric">
+        <input type="password" name="password" pattern="([a-zA-Z0-9]){1,}([@_.#-]){1,}([a-zA-Z0-9]){1,}" title="Password should contain special character like @-_#. in between alphanumeric">
     </label>
   
     <input type="radio" name="post" id="" class="check" value="Owner" checked> <span style="color: rgb(241, 7, 7);font-size: 20px;">Owner</span>

@@ -9,11 +9,11 @@
   <div class="container">  
    <h1> Owner Details</h1> 
   <hr>  
-<label> Firstname </label>   
-<input type="text" name="firstname" placeholder= "Enter Firstname"   required />   
+<label> Firstname ( * Capital) </label>   
+<input type="text" name="firstname" placeholder= "Enter Firstname" pattern="([A-Z]){2,}" title=" capital Characters"  required />   
 
-<label> Lastname: </label>    
-<input type="text" name="lastname"  placeholder="Enter Lastname"  required />     
+<label> Lastname: ( * Capital) </label>    
+<input type="text" name="lastname"  placeholder="Enter Lastname" pattern="([A-Z]){2,}" title=" capital Characters" required />     
 <div>  
 <label>   
 Gender :  
@@ -26,18 +26,20 @@ Gender :
 <label>   
 Phone :  
 </label>  
-<input type="text" name="country_code" placeholder="Country Code"  value="+91"  size="3"/>   
-<input type="text" name="phone" placeholder="Enter phone no." size="10" pattern="[9687][0-9]{9}" title="number can only have 10 digits" required>   
+<input type="text" name="country_code" placeholder="Country Code"  value="+91" readonly size="3"/>   
+<input type="text" name="phone" placeholder="Enter phone no." size="10" placeholder="xxxxx xxxxx" pattern="[9687]([0-9]){9}" title="number can only have 10 digits" required>   
 Current Address :  
-<textarea cols="80" rows="2" placeholder="Current Address" value="address" name="address"  required>  
+<textarea cols="80" rows="2" placeholder="Current Address ...." value="address" name="address"  required>  
 </textarea> 
 
- <label for="email"><b>Email</b></label> 
+ <label for="email">
+   <b>Email</b>
+  </label> 
 
- <input type="email" placeholder="Enter Email" name="email" pattern="([a-zA-Z0-9]+@gmail.com)|([a-zA-Z0-9]+@yahoo.com)" title="Format should be '@gmail.com' OR '@yahoo.com'" required>  
+ <input type="email" placeholder="Enter Email" name="email" placeholder="Entert Email" pattern="([a-zA-Z0-9._]){1,}[@]([a-z]){2,}[.]([a-z]){2,}([.a-z]{0,})" title="Enter valid ID" required>  
  
  <label for="account"><b>Bank Details</b></label>  
- <input type="text" placeholder="card no." name="account" pattern="[0-9]{10,}" required title="It is required for payment">  
+ <input type="text" placeholder="xxxxx xxxxxx" name="account" pattern="([0-9]){10,}" required title="It is required for payment">  
   
     <button type="submit" class="registerbtn">Done</button> 
     </div> 
