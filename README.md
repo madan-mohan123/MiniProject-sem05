@@ -1,5 +1,10 @@
 <h3 align="center"> PROJECT TOPIC: HOUSE RENTAL MANAGEMENT</<h3>
-<p align="center"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbyp3w2ykDVXwERbk-tvOgU_LBG_RKe0NdGoNbXQlPUqRgxpIQjNmE1u2GESJqamkmT58&usqp=CAU"/></p>
+<p align="center"> <img src="https://upload.wikimedia.org/wikipedia/en/4/42/GLA_University_logo.png"/></p>
+ 
+ 
+https://user-images.githubusercontent.com/61196580/118353885-050e4b00-b586-11eb-9b77-d8d4edd06879.mp4
+
+
  
  ## Project Group Members:
  1. Mohan Agrawal (18/181500385-D)                                           
